@@ -48,13 +48,13 @@
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
                         </a>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Delete user" onclick="event.preventDefault(); confirmDelete('{{ $user->id }}');">
+                        <a href="{{ route('users.destroy', ['user' => $user->id]) }}" class="text-secondary font-weight-bold text-xs p-2" onclick="event.preventDefault(); confirmDelete('{{ $user->id }}');">
                             Delete
                         </a>
                         <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST" style="display: none;">
-                          @csrf
-                          @method('DELETE')
-                      </form>
+                            @csrf
+                            @method('DELETE')
+                        </form>
                       </td>
                     </tr>
                     @endforeach
