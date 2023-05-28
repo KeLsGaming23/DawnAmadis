@@ -4,9 +4,9 @@
       <div class="row">
         <div class="col-12">
           <div class="card card-frame">
-            @if(session('sucess'))
+            @if(session('success'))
             <div class="alert alert-success" role="alert">
-                <strong>Success!</strong> {{ session('sucess') }}
+                <strong>Success!</strong> {{ session('success') }}
             </div>
             @endif
             <div class="card-body">
