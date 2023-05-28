@@ -47,8 +47,8 @@
                 <div class="form-group row">
                   <div class="col-lg-4">
                     <label for="profile_picture">Profile Photo</label>
-                    <input class="form-control" type="file" accept=".jpg, .png" 
-                      id="profile_picture" name="profile_picture">
+                    <input class="form-control" type="file" name="profile_picture" accept=".jpg, .png" 
+                      id="profile_picture">
                   </div>
                   <div class="col-lg-4">
                     <label for="old_student">Old Student?</label>
