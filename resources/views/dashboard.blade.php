@@ -174,6 +174,8 @@
             <div class="card-header pb-0 p-3">
               <div class="d-flex justify-content-between">
                 <h6 class="mb-2">School Year Archive</h6>
+                <a href="#" class="text-secondary font-weight-bold text-xs mb-3" data-bs-toggle="modal" data-bs-target="#modal-form"
+                            data-toggle="tooltip" data-original-title="Add School Year">Add School Year</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -200,8 +202,7 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Action</p>
-                        <a href="#" class="text-secondary font-weight-bold text-xs mb-3" data-bs-toggle="modal" data-bs-target="#modal-form"
-                            data-toggle="tooltip" data-original-title="Add School Year">Add School Year</a>
+                        
                       </div>
                       <div class="col-md-4">
                           <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
@@ -210,8 +211,8 @@
                                 <div class="modal-body p-0">
                                   <div class="card card-plain">
                                     <div class="card-header pb-0 text-left">
-                                      <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                                      <p class="mb-0">Enter your email and password to sign in</p>
+                                      <h3 class="font-weight-bolder text-info text-gradient">Add School Year</h3>
+                                      <p class="mb-0">Create a school year for archive</p>
                                     </div>
                                     <div class="card-body">
                                       <form role="form text-left">
