@@ -50,7 +50,7 @@ class UserPortalController extends Controller
         if ($request->role === 'Student') {
             $studentInfo = StudentBasicInformation::create([
                 'users_id' => $user->id,
-                'school_years_id' => null, // You may need to update this value based on your requirements
+                'school_years_id' => '3', // You may need to update this value based on your requirements
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'middle_name' => $request->middle_name
