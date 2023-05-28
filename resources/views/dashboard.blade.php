@@ -202,10 +202,10 @@
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Action</p>
                         <div class="d-flex justify-content-center mb-3">
-                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Show Archive">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Show Archive">
                             Show Archive   
                           </a>
-                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit School Year">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit School Year">
                               Edit School Year
                           </a>
                         </div>
