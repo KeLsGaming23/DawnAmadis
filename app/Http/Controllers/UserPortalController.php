@@ -15,7 +15,8 @@ class UserPortalController extends Controller
     public function index(){
         $users = User::latest()->paginate(15);
         $schoolYears = SchoolYear::all();
-        return view('userstable', compact('users', 'schoolYears'));
+        $studentInformation = StudentBasicInformation::all();
+        return view('userstable', compact('users', 'schoolYears', 'studentInformation'));
     }
     public function selectRole(){
         $roleselects = User::all();
