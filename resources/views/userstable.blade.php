@@ -17,7 +17,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Roles</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Enrolled At</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Token</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                      <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -43,11 +43,6 @@
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{ $user->random_token }}</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
                       </td>
                       <td class="align-middle">
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
