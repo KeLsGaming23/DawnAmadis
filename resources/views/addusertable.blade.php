@@ -16,10 +16,19 @@
             <div class="card-body">
               <form action="{{ route('store.user') }}" method="POST">
               @csrf
-                <div class="form-group">
-                  <label for="profile_photo">Profile Photo</label>
-                  <input class="form-control" type="file" accept=".jpg, .png" 
-                    id="profile_photo" name="profile_photo">
+                <div class="form-group row">
+                  <div class="col-lg-6">
+                    <label for="profile_picture">Profile Photo</label>
+                    <input class="form-control" type="file" accept=".jpg, .png" 
+                      id="profile_picture" name="profile_picture">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="old_student">Old Student?</label>
+                    <select class="form-control" id="old_student" name="old_student">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
                 </div>
                 
                 <div class="form-group row">

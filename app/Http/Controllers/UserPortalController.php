@@ -48,13 +48,27 @@ class UserPortalController extends Controller
         ]);
 
         if ($request->role === 'Student') {
+            $profile_picture = $request->file('profile_picture');
+            $name_gen = hexdec(uniqid());
+            $img_ext = strtolower($profile_picture->getClientOriginalExtension());
+            $image_name = $name_gen.".".$img_ext;
+            $up_location = 'image/student-profile/';
+            $last_img = $up_location.$image_name;
+            $profile_picture->move($up_location,$image_name);
             $studentInfo = StudentBasicInformation::create([
                 'users_id' => $user->id,
                 'school_years_id' => '3', // You may need to update this value based on your requirements
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
-                'middle_name' => $request->middle_name
+                'middle_name' => $request->middle_name,
+                'old_student' => $request->old_student,
+                'gender' => $request->gender,
+                'birth_date' => $request->birth_date,
+                'place_of_birth' => $request->place_of_birth,
+                'grade' => $request->grade,
+                'profile_picture' => $last_img,
             ]);
+            
         }
 
         return Redirect()->back()->with('success', 'User created successfully.');
