@@ -48,8 +48,8 @@
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
                         </a>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
-                          Delete
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Delete user" onclick="event.preventDefault(); confirmDelete('{{ $user->id }}');">
+                            Delete
                         </a>
                         <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST" style="display: none;">
                           @csrf
