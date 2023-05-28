@@ -360,34 +360,32 @@
         </div>
       </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#school-year-form').submit(function(e) {
-            e.preventDefault(); // Prevent the default form submission
-
-            var form = $(this);
-            var url = form.attr('action');
-            var method = form.attr('method');
-            var data = form.serialize();
-
-            $.ajax({
-                url: url,
-                type: method,
-                data: data,
-                success: function(response) {
-                    // Handle the successful response
-                    console.log(response);
-                    // You can update the UI or perform any other actions here
-                },
-                error: function(xhr, status, error) {
-                    // Handle the error response
-                    console.error(error);
-                    // You can display an error message or perform any other error handling here
-                }
-            });
-        });
+    <script>
+  $(document).ready(function() {
+    $('#school-year-form').on('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission behavior
+      
+      var form = $(this);
+      var url = form.attr('action');
+      var method = form.attr('method');
+      var data = form.serialize(); // Serialize the form data
+      
+      $.ajax({
+        url: url,
+        method: method,
+        data: data,
+        success: function(response) {
+          // Handle success response
+          console.log(response);
+          // Reset form or close modal if desired
+        },
+        error: function(xhr, status, error) {
+          // Handle error response
+          console.log(error);
+        }
+      });
     });
+  });
 </script>
 
 </x-app-layout>
