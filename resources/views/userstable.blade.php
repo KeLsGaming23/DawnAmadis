@@ -17,6 +17,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Roles</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Enrolled At</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Token</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
