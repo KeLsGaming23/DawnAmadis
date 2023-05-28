@@ -26,8 +26,8 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                          @if($user->studentBasicInformation)
-                            <img src="{{ asset($user->studentBasicInformation->profile_picture) }}" class="avatar avatar-sm me-3" alt="user1">
+                          @if($user->studentBasicInformations)
+                            <img src="{{ asset($user->studentBasicInformations->profile_picture) }}" class="avatar avatar-sm me-3" alt="user1">
                           @else
                             <!-- Handle the case where studentBasicInformation is null -->
                             <img src="{{ asset('path-to-default-profile-photo.jpg') }}" class="avatar avatar-sm me-3" alt="default-user">
