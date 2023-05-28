@@ -201,9 +201,17 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Action</p>
-                        
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Show Archive">
+                          Show Archive
+                        </a>
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit School Year">
+                          Edit School Year
+                        </a>
                       </div>
-                      <div class="col-md-4">
+                    </td>
+                  </tr>
+                        <!-- Modal for Adding School year Archive -->
+                        <div class="col-md-4">
                           <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                               <div class="modal-content">
@@ -243,9 +251,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                    </td>
-                  </tr>
+                        </div>                  
                 </tbody>
               </table>
             </div>
