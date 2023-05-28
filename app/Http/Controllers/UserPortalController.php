@@ -60,8 +60,8 @@ class UserPortalController extends Controller
             $name_gen = hexdec(uniqid());
             $img_ext = strtolower($profile_picture->getClientOriginalExtension());
             $image_name = $name_gen . "." . $img_ext;
-            $up_location = 'image/student-profile/';
-            $last_img = $up_location . $image_name;
+            $up_location = 'public/image/student-profile/';
+            $last_img = 'https://dawnamadis.com/' . $up_location . $image_name;
             $profile_picture->move($up_location, $image_name);
             $studentInfo = StudentBasicInformation::create([
                 'users_id' => $user->id,
