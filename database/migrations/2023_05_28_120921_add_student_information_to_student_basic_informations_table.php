@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('student_basic_informations', function (Blueprint $table) {
             $table->string('old_student');
             $table->string('gender');
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->string('place_of_birth');
             $table->enum('grade',[
                 'Kinder', 'Prep', 'Grade 1',
