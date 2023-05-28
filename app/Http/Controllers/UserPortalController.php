@@ -19,7 +19,8 @@ class UserPortalController extends Controller
     }
     public function selectRole(){
         $roleselects = User::all();
-        return view('addusertable', compact('roleselects'));
+        $schoolYears = SchoolYear::all();
+        return view('addusertable', compact('roleselects', 'schoolYears'));
     }
     public function store(Request $request)
     {
