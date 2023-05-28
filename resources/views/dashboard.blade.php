@@ -200,8 +200,8 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Action</p>
+                        <a class="btn btn-block btn-default mb-3" data-bs-toggle="modal" data-bs-target="#modal-form">Add School Year</a>
                         <div class="col-md-4">
-                          <button type="button" class="btn btn-block btn-default mb-3" data-bs-toggle="modal" data-bs-target="#modal-form">Form</button>
                           <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                               <div class="modal-content">
