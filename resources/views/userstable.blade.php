@@ -45,8 +45,11 @@
                         <span class="text-secondary text-xs font-weight-bold">{{ $user->random_token }}</span>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
+                        </a>
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
+                          Delete
                         </a>
                       </td>
                     </tr>
