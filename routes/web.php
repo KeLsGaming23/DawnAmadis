@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\UserPortalController;
+use App\Models\SchoolYear;
 use App\Models\UserPortal;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $schoolYears = SchoolYear::all();
+    return view('dashboard', compact('schoolYears'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
