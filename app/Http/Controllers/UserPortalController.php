@@ -27,7 +27,9 @@ class UserPortalController extends Controller
         $validateData = $request->validate([
             'role' => 'required',
             'first_name' => 'required',
-            'last_name' => 'required'
+            'last_name' => 'required',
+            'old_student' => 'required',
+            'profile_picture' => 'required',
         ]);
 
         $firstName = $request->first_name;
