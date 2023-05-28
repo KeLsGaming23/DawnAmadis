@@ -11,4 +11,9 @@ class SchoolYear extends Model
     protected $fillable = [
         'school_year',
     ];
+    public function studentBasicInformations()
+    {
+        return $this->hasOne(StudentBasicInformation::class, 'school_years_id');
+    }
+
 }
