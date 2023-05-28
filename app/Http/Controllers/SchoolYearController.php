@@ -12,10 +12,10 @@ class SchoolYearController extends Controller
         $validateData = $request->validate([
             'school_year' => 'require|string',
         ]);
-        SchoolYear::insert([
-            'school_year' => $request->school_year,
-            'created_at' => Carbon::now()
+        $schoolYear = SchoolYear::create([
+            'school_year' => $request->input('school_year'),
         ]);
-        return Redirect()->back()->with('success', 'School Year Created successfully.');
+
+        return response()->json(['message' => 'School year created successfully'], 201);
     }
 }

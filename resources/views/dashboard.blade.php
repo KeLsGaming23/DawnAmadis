@@ -360,4 +360,34 @@
         </div>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#school-year-form').submit(function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            var form = $(this);
+            var url = form.attr('action');
+            var method = form.attr('method');
+            var data = form.serialize();
+
+            $.ajax({
+                url: url,
+                type: method,
+                data: data,
+                success: function(response) {
+                    // Handle the successful response
+                    console.log(response);
+                    // You can update the UI or perform any other actions here
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error response
+                    console.error(error);
+                    // You can display an error message or perform any other error handling here
+                }
+            });
+        });
+    });
+</script>
+
 </x-app-layout>
