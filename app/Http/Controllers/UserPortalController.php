@@ -35,13 +35,17 @@ class UserPortalController extends Controller
         $name = $firstName . " " . $lastName;
         $randomToken = Str::random(6);
 
-        $profile_picture = $request->file('profile_picture');
-        $name_gen = hexdec(uniqid());
-        $img_ext = strtolower($profile_picture->getClientOriginalExtension());
-        $image_name = $name_gen.".".$img_ext;
-        $up_location = 'image/student-profile/';
-        $last_img = $up_location.$image_name;
-        $profile_picture->move($up_location,$image_name);
+        $last_img = null; // Default value for profile picture
+
+        if ($request->hasFile('profile_picture')) { // Check if a file was uploaded
+            $profile_picture = $request->file('profile_picture');
+            $name_gen = hexdec(uniqid());
+            $img_ext = strtolower($profile_picture->getClientOriginalExtension());
+            $image_name = $name_gen . "." . $img_ext;
+            $up_location = 'image/student-profile/';
+            $last_img = $up_location . $image_name;
+            $profile_picture->move($up_location, $image_name);
+        }
         // Check if the generated token already exists, and regenerate if necessary
         while (User::where('random_token', $randomToken)->exists()) {
             $randomToken = Str::random(6);
