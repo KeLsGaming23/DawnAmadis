@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SchoolYear;
 use App\Models\User;
 use App\Models\UserPortal;
 use App\Models\StudentBasicInformation;
@@ -13,7 +14,8 @@ class UserPortalController extends Controller
 {
     public function index(){
         $users = User::latest()->paginate(15);
-        return view('userstable', compact('users'));
+        $schoolYears = SchoolYear::all();
+        return view('userstable', compact('users', 'schoolYears'));
     }
     public function selectRole(){
         $roleselects = User::all();

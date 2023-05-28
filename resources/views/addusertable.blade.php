@@ -17,16 +17,24 @@
               <form action="{{ route('store.user') }}" method="POST">
               @csrf
                 <div class="form-group row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <label for="profile_picture">Profile Photo</label>
                     <input class="form-control" type="file" accept=".jpg, .png" 
                       id="profile_picture" name="profile_picture">
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <label for="old_student">Old Student?</label>
                     <select class="form-control" id="old_student" name="old_student">
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4">
+                    <label for="school_years_id">School Year</label>
+                    <select class="form-control" id="school_years_id" name="school_years_id">
+                    @foreach($schoolYears as $schoolYear)
+                        <option value="{{ $schoolYear->id }}">{{ $schoolYear->school_year }}</option>
+                    @endforeach
                     </select>
                   </div>
                 </div>
