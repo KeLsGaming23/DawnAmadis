@@ -16,6 +16,34 @@
             <div class="card-body">
               <form action="{{ route('store.user') }}" method="POST">
               @csrf
+                <div class="form-group">
+                  <div class="col-lg-6">
+                    <label for="role">Role</label>
+                    <select class="form-control" id="role" name="role">
+                      <option value="Student">Student</option>
+                      <option value="Parent">Parent</option>
+                      <option value="Teacher">Teacher</option>
+                      <option value="Staff">Staff</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="grade">Grade</label>
+                      <select class="form-control" id="grade" name="grade">
+                        <option value="Kinder">Kinder</option>
+                        <option value="Prep">Prep</option>
+                        <option value="Grade 1">Grade 1</option>
+                        <option value="Grade 2">Grade 2</option>
+                        <option value="Grade 3">Grade 3</option>
+                        <option value="Grade 4">Grade 4</option>
+                        <option value="Grade 5">Grade 5</option>
+                        <option value="Grade 6">Grade 6</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                      </select>
+                  </div>
+                </div>
                 <div class="form-group row">
                   <div class="col-lg-4">
                     <label for="profile_picture">Profile Photo</label>
@@ -53,14 +81,17 @@
                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Dela Cruz">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="role">Role</label>
-                  <select class="form-control" id="role" name="role">
-                    <option value="Student">Student</option>
-                    <option value="Parent">Parent</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Staff">Staff</option>
-                  </select>
+                <div class="form-group row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="birth_date" class="form-control-label">Birth Date</label>
+                        <input class="form-control" type="date" value="2023-01-01" id="birth_date" name="birth_date">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="place_of_birth">Place of Birth</label>
+                    <input type="text" class="form-control" id="place_of_birth" name="place_of_birth" placeholder="Juan">
+                  </div>
                 </div>
                 <div class="form-group row">
                   <span class="col-lg-9"></span>
