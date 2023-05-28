@@ -51,9 +51,22 @@
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit user">
                           Delete
                         </a>
+                        <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST" style="display: none;">
+                          @csrf
+                          @method('DELETE')
+                      </form>
                       </td>
                     </tr>
                     @endforeach
+                    @push('scripts')
+                    <script>
+                        function confirmDelete(userId) {
+                            if (confirm('Are you sure you want to delete this user?')) {
+                                document.getElementById('delete-form-' + userId).submit();
+                            }
+                        }
+                    </script>
+                    @endpush
                   </tbody>
                 </table>
               </div>  

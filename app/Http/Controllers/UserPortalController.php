@@ -59,4 +59,16 @@ class UserPortalController extends Controller
 
         return Redirect()->back()->with('success', 'User created successfully.');
     }
+    /**
+     * Soft delete a user.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sDeletes($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return Redirect()->back()->with('success', 'Users deleted successfully.');
+    }
 }
