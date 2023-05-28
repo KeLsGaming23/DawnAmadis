@@ -174,8 +174,7 @@
             <div class="card-header pb-0 p-3">
               <div class="d-flex justify-content-between">
                 <h6 class="mb-2">School Year Archive</h6>
-                <a href="#" class="text-secondary font-weight-bold text-xs mb-3" data-bs-toggle="modal" data-bs-target="#modal-form"
-                            data-toggle="tooltip" data-original-title="Add School Year">Add School Year</a>
+                <button type="button" class="btn btn-block btn-default mb-3" data-bs-toggle="modal" data-bs-target="#modal-form">Add School Year</button>
               </div>
             </div>
             <div class="table-responsive">
