@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\UserPortalController;
 use App\Models\UserPortal;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,7 @@ Route::post('/add/user', [UserPortalController::class, 'store'])
 
 Route::get('/userstable', [UserPortalController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('userstable');
+
+Route::post('/school-years', [SchoolYearController::class, 'store'])   
+    ->name('school-years.store');
 require __DIR__.'/auth.php';

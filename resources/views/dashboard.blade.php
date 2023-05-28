@@ -212,39 +212,41 @@
                       </div>
                     </td>
                   </tr>
-                        <!-- Modal for Adding School year Archive -->
-                        <div class="col-md-4">
-                          <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <!-- Modal for Adding School year Archive -->
+                    <div class="col-md-4">
+                      <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                               <div class="modal-content">
-                                <div class="modal-body p-0">
-                                  <div class="card card-plain">
-                                    <div class="card-header pb-0 text-left">
-                                      <h3 class="font-weight-bolder text-info text-gradient">Add School Year</h3>
-                                      <p class="mb-0">Create a school year for archive</p>
-                                    </div>
-                                    <div class="card-body">
-                                      <form role="form text-left">
-                                        <label>School Year</label>
-                                        <div class="input-group mb-3">
-                                          <input type="text" class="form-control" placeholder="School Year" aria-label="School Year" name="school_year">
-                                        </div>
-                                        <div class="text-center">
-                                          <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Add New School Year</button>
-                                        </div>
-                                      </form>
-                                    </div>
-                                    <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                      <p class="mb-4 text-sm mx-auto">
-                                        Create New School Year for archive
-                                      </p>
-                                    </div>
+                                  <div class="modal-body p-0">
+                                      <div class="card card-plain">
+                                          <div class="card-header pb-0 text-left">
+                                              <h3 class="font-weight-bolder text-info text-gradient">Add School Year</h3>
+                                              <p class="mb-0">Create a school year for archive</p>
+                                          </div>
+                                          <div class="card-body">
+                                              <form role="form" id="school-year-form" method="POST" action="{{ route('school-years.store') }}">
+                                                  @csrf
+                                                  <label>School Year</label>
+                                                  <div class="input-group mb-3">
+                                                      <input type="text" class="form-control" placeholder="School Year" aria-label="School Year" name="school_year">
+                                                  </div>
+                                                  <div class="text-center">
+                                                      <button type="submit" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Add New School Year</button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                              <p class="mb-4 text-sm mx-auto">
+                                                  Create a new school year for the archive
+                                              </p>
+                                          </div>
+                                      </div>
                                   </div>
-                                </div>
                               </div>
-                            </div>
                           </div>
-                        </div>                  
+                      </div>
+                  </div>
+                  
                 </tbody>
               </table>
             </div>
