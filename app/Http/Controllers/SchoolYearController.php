@@ -16,6 +16,7 @@ class SchoolYearController extends Controller
         ]);
         SchoolYear::insert([
             'school_year' => $request->school_year,
+            'created_at' => Carbon::now()
         ]);
 
         return Redirect()->back()->with('success', 'School Year Created successfully');
