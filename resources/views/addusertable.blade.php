@@ -14,7 +14,7 @@
               </div>
             @endif
             <div class="card-body">
-              <form action="{{ route('store.user') }}" method="POST">
+              <form action="{{ route('store.user') }}" method="POST" enctype="multipart/form-data>
               @csrf
                 <div class="form-group">
                   <div class="col-lg-6">
