@@ -10,15 +10,14 @@ use Illuminate\Support\Facades\Log;
 class SchoolYearController extends Controller
 {
     public function store(Request $request){
-        Log::info('Store method called'); // Example log entry
 
         $validateData = $request->validate([
-            'school_year' => 'require|string',
+            'school_year' => 'required',
         ]);
-        $schoolYear = SchoolYear::create([
-            'school_year' => $request->input('school_year'),
+        SchoolYear::insert([
+            'school_year' => $request->school_year,
         ]);
 
-        return response()->json(['message' => 'School year created successfully'], 201);
+        return Redirect()->back()->with('success', 'School Year Created successfully');
     }
 }
