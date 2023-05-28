@@ -201,12 +201,14 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Action</p>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Show Archive  ">
-                          Show Archive
-                        </a>
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="  Edit School Year">
-                          Edit School Year
-                        </a>
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Show Archive  ">
+                            Show Archive
+                          </a>
+                          <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit School Year">
+                            Edit School Year
+                          </a>
+                        </div>
                       </div>
                     </td>
                   </tr>
