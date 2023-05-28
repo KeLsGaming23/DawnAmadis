@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserPortal;
+use App\StudentBasicInformation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 class UserPortalController extends Controller
 {
@@ -55,6 +57,6 @@ class UserPortalController extends Controller
             ]);
         }
 
-        return Redirect::back()->with('success', 'User created successfully.');
+        return Redirect()->back()->with('success', 'User created successfully.');
     }
 }
