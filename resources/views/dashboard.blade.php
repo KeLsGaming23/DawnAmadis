@@ -203,10 +203,10 @@
                         <p class="text-xs font-weight-bold mb-0">Action</p>
                         <div class="d-flex justify-content-center mb-3">
                           <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Show Archive">
-                            Show Archive   
+                            Show Archive
                           </a>
                           <a href="javascript:;" class="text-secondary font-weight-bold text-xs p-2" data-toggle="tooltip" data-original-title="Edit School Year">
-                              Edit School Year
+                            Edit School Year
                           </a>
                         </div>
                       </div>
@@ -225,27 +225,18 @@
                                     </div>
                                     <div class="card-body">
                                       <form role="form text-left">
-                                        <label>Email</label>
+                                        <label>School Year</label>
                                         <div class="input-group mb-3">
-                                          <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
-                                        </div>
-                                        <label>Password</label>
-                                        <div class="input-group mb-3">
-                                          <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
-                                        </div>
-                                        <div class="form-check form-switch">
-                                          <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                                          <label class="form-check-label" for="rememberMe">Remember me</label>
+                                          <input type="text" class="form-control" placeholder="School Year" aria-label="School Year" name="school_year">
                                         </div>
                                         <div class="text-center">
-                                          <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Sign in</button>
+                                          <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Add New School Year</button>
                                         </div>
                                       </form>
                                     </div>
                                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                       <p class="mb-4 text-sm mx-auto">
-                                        Don't have an account?
-                                        <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
+                                        Create New School Year for archive
                                       </p>
                                     </div>
                                   </div>
