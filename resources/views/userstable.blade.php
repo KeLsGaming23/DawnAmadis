@@ -75,22 +75,8 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="user-details">
-              <!-- User details will be dynamically updated here -->
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn bg-gradient-primary">Save changes</button>
-          </div>
+        <div id="user-details" class="modal-content">
+          
         </div>
       </div>
     </div>
@@ -124,7 +110,14 @@
 
           // Update the modal content with the fetched user details
           userDetailsContainer.innerHTML = `
-            <h6 class="mb-0 text-sm">Name: ${user.last_name}, ${user.first_name} ${user.middle_name}</h6>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">${user.last_name}, ${user.first_name} ${user.middle_name}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div >
             <p class="text-xs text-secondary mb-0">Email: ${user.email}</p>
             <p class="text-xs text-secondary mb-0">User ID: ${user.users_id}</p>
             <p class="text-xs text-secondary mb-0">School Year ID: ${user.school_years_id}</p>
@@ -135,6 +128,13 @@
             <p class="text-xs text-secondary mb-0">Grade: ${user.grade}</p>
             <img src="${user.profile_picture}" alt="Profile Picture">
             <!-- Add more user details here -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn bg-gradient-primary">Save changes</button>
+          </div>
+            
           `;
         })
         .catch(error => console.error('Error:', error));
