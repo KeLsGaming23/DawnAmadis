@@ -93,11 +93,11 @@
       </div>
     </div>
     <script>
-      var tableRow = document.getElementById('Click-Table');
-      tableRow.addEventListener('click', function() {
-        alert('Table row clicked!');
-        // Your custom code here
-      });
+      // var tableRow = document.getElementById('Click-Table');
+      // tableRow.addEventListener('click', function() {
+      //   alert('Table row clicked!');
+      //   // Your custom code here
+      // });
       function confirmDelete(userId) {
         if (confirm('Are you sure you want to delete this user?')) {
             document.getElementById('delete-form-' + userId).submit();
