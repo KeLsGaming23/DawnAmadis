@@ -22,8 +22,8 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                    <tr id="Click-Table" style="cursor: pointer;">
-                      <td>
+                    <tr id="Click-Table">
+                      <td style="cursor: pointer;">
                         <div class="d-flex px-2 py-1">
                           <div>
                           @if($user->studentBasicInformations)
