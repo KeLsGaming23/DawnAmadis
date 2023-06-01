@@ -107,44 +107,39 @@
       }
     </script>
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const rows = document.querySelectorAll('.clickable-row');
-  const userDetailsContainer = document.getElementById('user-details');
+  document.addEventListener('DOMContentLoaded', function () {
+    const rows = document.querySelectorAll('.clickable-row');
+    const userDetailsContainer = document.getElementById('user-details');
 
-  function getUserDetails(userId) {
-    fetch('https://dawnamadis.com/users/' + userId)
-      .then(response => response.json())
-      .then(user => {
-        if (user) {
-          // Update the modal content with the fetched user details
-          userDetailsContainer.innerHTML = `
-            <h6 class="mb-0 text-sm">Name: ${user.last_name}, ${user.first_name} ${user.middle_name}</h6>
-            <p class="text-xs text-secondary mb-0">Email: ${user.email}</p>
-            <p class="text-xs text-secondary mb-0">User ID: ${user.users_id}</p>
-            <p class="text-xs text-secondary mb-0">School Year ID: ${user.school_years_id}</p>
-            <p class="text-xs text-secondary mb-0">Old Student: ${user.old_student}</p>
-            <p class="text-xs text-secondary mb-0">Gender: ${user.gender}</p>
-            <p class="text-xs text-secondary mb-0">Birth Date: ${user.birth_date}</p>
-            <p class="text-xs text-secondary mb-0">Place of Birth: ${user.place_of_birth}</p>
-            <p class="text-xs text-secondary mb-0">Grade: ${user.grade}</p>
-            <img src="${user.profile_picture}" alt="Profile Picture">
-            <!-- Add more user details here -->
-          `;
-        }
-      })
-      .catch(error => console.error('Error:', error));
-  }
+    rows.forEach(row => {
+      row.addEventListener('click', function () {
+        const userId = row.getAttribute('data-user-id');
 
-  rows.forEach(row => {
-    row.addEventListener('click', function () {
-      const userId = row.getAttribute('data-user-id');
-      getUserDetails(userId);
+        // Fetch user details using AJAX
+        fetch(`/users/${userId}`)
+          .then(response => response.json())
+          .then(user => {
+            // Update the modal content with the fetched user details
+            userDetailsContainer.innerHTML = `
+              <h6 class="mb-0 text-sm">Name: ${user.last_name}, ${user.first_name} ${user.middle_name}</h6>
+              <p class="text-xs text-secondary mb-0">Email: ${user.email}</p>
+              <p class="text-xs text-secondary mb-0">User ID: ${user.users_id}</p>
+              <p class="text-xs text-secondary mb-0">School Year ID: ${user.school_years_id}</p>
+              <p class="text-xs text-secondary mb-0">Old Student: ${user.old_student}</p>
+              <p class="text-xs text-secondary mb-0">Gender: ${user.gender}</p>
+              <p class="text-xs text-secondary mb-0">Birth Date: ${user.birth_date}</p>
+              <p class="text-xs text-secondary mb-0">Place of Birth: ${user.place_of_birth}</p>
+              <p class="text-xs text-secondary mb-0">Grade: ${user.grade}</p>
+              <img src="${user.profile_picture}" alt="Profile Picture">
+              <!-- Add more user details here -->
+            `;
+          })
+          .catch(error => console.error('Error:', error));
+      });
     });
   });
-});
+</script>
 
-
-    </script>
 
 
 </x-app-layout>
