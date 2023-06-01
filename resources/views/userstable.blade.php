@@ -22,7 +22,7 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                    <tr data-user-id="{{ $user->id }}" class="clickable-row">
+                  <tr class="clickable-row" data-user-id="{{ $user->id }}">
                       <td style="cursor: pointer;" id="Click-Table" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                         <div class="d-flex px-2 py-1">
                           <div>

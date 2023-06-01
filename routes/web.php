@@ -49,4 +49,7 @@ Route::post('/school-years', [SchoolYearController::class, 'store'])
 
 Route::delete('/users/{user}', [UserPortalController::class, 'sDeletes'])
     ->name('users.destroy');
+
+Route::get('/users/{userId}', [UserPortalController::class, 'getUserDetails']);
+
 require __DIR__.'/auth.php';
