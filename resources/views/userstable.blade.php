@@ -22,7 +22,7 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                    <tr id="Click-Table">
+                    <tr id="Click-Table" style="cursor: pointer;">
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -74,7 +74,6 @@
     </div>  
     <script>
       var tableRow = document.getElementById('Click-Table');
-
       tableRow.addEventListener('click', function() {
         alert('Table row clicked!');
         // Your custom code here
