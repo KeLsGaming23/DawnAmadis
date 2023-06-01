@@ -126,7 +126,7 @@
             <p class="text-xs text-secondary mb-0">Birth Date: ${user.birth_date}</p>
             <p class="text-xs text-secondary mb-0">Place of Birth: ${user.place_of_birth}</p>
             <p class="text-xs text-secondary mb-0">Grade: ${user.grade}</p>
-            <img class="avatar avatar-sm me-3" src="${user.profile_picture}" alt="Profile Picture">
+            <img src="${user.profile_picture}" alt="Profile Picture" style="border-radius: 50%; width: 200px; height: 200px;">
             <!-- Add more user details here -->
             </div>
           </div>
