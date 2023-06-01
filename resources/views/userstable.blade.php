@@ -73,8 +73,8 @@
       </div>  
     </div>  
     <script>
-      let click-table = getElementById("Click-Table");
-      click-table.addEventListener('click', function() {
+      let clickTable = getElementById("Click-Table");
+      clickTable.addEventListener('click', function() {
         alert('Div clicked!');
         // Your custom code here
       });
@@ -83,6 +83,5 @@
             document.getElementById('delete-form-' + userId).submit();
         }
       }
-
     </script>
 </x-app-layout>
