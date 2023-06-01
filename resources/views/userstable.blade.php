@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const userDetailsContainer = document.getElementById('user-details');
 
   function getUserDetails(userId) {
-    fetch('https://dawnamadis.com//users/' + userId)
+    fetch('https://dawnamadis.com/users/' + userId)
       .then(response => response.json())
       .then(user => {
         if (user) {
