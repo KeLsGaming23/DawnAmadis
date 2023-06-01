@@ -22,8 +22,8 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                  <tr class="clickable-row" data-user-id="{{ $user->id }}">
-                      <td style="cursor: pointer;" id="Click-Table" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+                  <tr>
+                      <td style="cursor: pointer;" class="clickable-row" data-user-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                         <div class="d-flex px-2 py-1">
                           <div>
                           @if($user->studentBasicInformations)
