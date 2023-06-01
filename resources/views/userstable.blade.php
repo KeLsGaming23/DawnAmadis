@@ -112,13 +112,13 @@
         const userDetailsContainer = document.getElementById('user-details');
 
         rows.forEach(row => {
-          row.addEventListener('click', function () {
+          row.addEventListener('click', function  getUserDetails(userId) {
             const userId = row.getAttribute('data-user-id');
 
-            // Fetch user details using AJAX
-            fetch(`/users/${userId}`)
-              .then(response => response.json())
-              .then(user => {
+            fetch('/users/' + userId)
+            .then(response => response.json())
+            .then(user => {
+              if (user) {
                 // Update the modal content with the fetched user details
                 userDetailsContainer.innerHTML = `
                   <h6 class="mb-0 text-sm">Name: ${user.last_name}, ${user.first_name} ${user.middle_name}</h6>
