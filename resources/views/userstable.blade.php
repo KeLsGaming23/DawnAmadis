@@ -22,7 +22,7 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                    <tr>
+                    <tr id="Click-Table">
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -73,10 +73,16 @@
       </div>  
     </div>  
     <script>
-                        function confirmDelete(userId) {
-                            if (confirm('Are you sure you want to delete this user?')) {
-                                document.getElementById('delete-form-' + userId).submit();
-                            }
-                        }
-                    </script>
+      let click-table = getElementById("Click-Table");
+      click-table..addEventListener('click', function() {
+        alert('Div clicked!');
+        // Your custom code here
+      });
+      function confirmDelete(userId) {
+        if (confirm('Are you sure you want to delete this user?')) {
+            document.getElementById('delete-form-' + userId).submit();
+        }
+      }
+
+    </script>
 </x-app-layout>
