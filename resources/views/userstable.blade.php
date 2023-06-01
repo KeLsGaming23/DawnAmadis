@@ -107,7 +107,7 @@
       }
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const rows = document.querySelectorAll('.clickable-row');
   const userDetailsContainer = document.getElementById('user-details');
 
@@ -142,6 +142,7 @@
     });
   });
 });
+
 
     </script>
 
