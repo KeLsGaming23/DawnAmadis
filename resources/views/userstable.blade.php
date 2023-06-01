@@ -121,8 +121,16 @@
               .then(user => {
                 // Update the modal content with the fetched user details
                 userDetailsContainer.innerHTML = `
-                  <h6 class="mb-0 text-sm">${user.name}</h6>
-                  <p class="text-xs text-secondary mb-0">${user.email}</p>
+                  <h6 class="mb-0 text-sm">Name: ${user.last_name}, ${user.first_name} ${user.middle_name}</h6>
+                  <p class="text-xs text-secondary mb-0">Email: ${user.email}</p>
+                  <p class="text-xs text-secondary mb-0">User ID: ${user.users_id}</p>
+                  <p class="text-xs text-secondary mb-0">School Year ID: ${user.school_years_id}</p>
+                  <p class="text-xs text-secondary mb-0">Old Student: ${user.old_student}</p>
+                  <p class="text-xs text-secondary mb-0">Gender: ${user.gender}</p>
+                  <p class="text-xs text-secondary mb-0">Birth Date: ${user.birth_date}</p>
+                  <p class="text-xs text-secondary mb-0">Place of Birth: ${user.place_of_birth}</p>
+                  <p class="text-xs text-secondary mb-0">Grade: ${user.grade}</p>
+                  <img src="${user.profile_picture}" alt="Profile Picture">
                   <!-- Add more user details here -->
                 `;
               })
@@ -131,5 +139,6 @@
         });
       });
     </script>
+
 
 </x-app-layout>
