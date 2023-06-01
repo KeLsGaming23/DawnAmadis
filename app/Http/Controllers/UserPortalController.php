@@ -96,23 +96,26 @@ class UserPortalController extends Controller
     }
     public function getUserDetails($userId)
     {
-        $studentBasicInformation = StudentBasicInformation::findOrFail($userId);
+        $studentBasicInformation = StudentBasicInformation::where('user_id', $userId)->first();
 
-        // Modify the student basic information data as per your requirements
-        $userDetails = [
-            'last_name' => $studentBasicInformation->last_name,
-            'first_name' => $studentBasicInformation->first_name,
-            'middle_name' => $studentBasicInformation->middle_name,
-            'users_id' => $studentBasicInformation->users_id,
-            'school_years_id' => $studentBasicInformation->school_years_id,
-            'old_student' => $studentBasicInformation->old_student,
-            'gender' => $studentBasicInformation->gender,
-            'birth_date' => $studentBasicInformation->birth_date,
-            'place_of_birth' => $studentBasicInformation->place_of_birth,
-            'grade' => $studentBasicInformation->grade,
-            'profile_picture' => $studentBasicInformation->profile_picture,
-        ];
-
+        if ($studentBasicInformation) {
+            $userDetails = [
+                'last_name' => $studentBasicInformation->last_name,
+                'first_name' => $studentBasicInformation->first_name,
+                'middle_name' => $studentBasicInformation->middle_name,
+                'users_id' => $studentBasicInformation->users_id,
+                'school_years_id' => $studentBasicInformation->school_years_id,
+                'old_student' => $studentBasicInformation->old_student,
+                'gender' => $studentBasicInformation->gender,
+                'birth_date' => $studentBasicInformation->birth_date,
+                'place_of_birth' => $studentBasicInformation->place_of_birth,
+                'grade' => $studentBasicInformation->grade,
+                'profile_picture' => $studentBasicInformation->profile_picture,
+            ];
+        } else {
+            $userDetails = [];
+        }
+    
         return response()->json($userDetails);
     }
 }
