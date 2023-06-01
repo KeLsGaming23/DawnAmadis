@@ -74,7 +74,7 @@
     </div>  
     <script>
       let click-table = getElementById("Click-Table");
-      click-table..addEventListener('click', function() {
+      click-table.addEventListener('click', function() {
         alert('Div clicked!');
         // Your custom code here
       });
