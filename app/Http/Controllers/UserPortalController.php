@@ -96,7 +96,7 @@ class UserPortalController extends Controller
     }
     public function getUserDetails($userId)
     {
-        $studentBasicInformation = StudentBasicInformation::where('user_id', $userId)->first();
+        $studentBasicInformation = StudentBasicInformation::where('users_id', $userId)->first();
 
         if ($studentBasicInformation) {
             $userDetails = [
@@ -116,6 +116,6 @@ class UserPortalController extends Controller
             $userDetails = [];
         }
     
-        return response()->json($userDetails);
+        return response()->json(['data' => $userDetails]);
     }
 }
