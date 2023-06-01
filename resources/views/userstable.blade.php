@@ -73,9 +73,10 @@
       </div>  
     </div>  
     <script>
-      let clickTable = getElementById("Click-Table");
-      clickTable.addEventListener('click', function() {
-        alert('Div clicked!');
+      var tableRow = document.getElementById('Click-Table');
+
+      tableRow.addEventListener('click', function() {
+        alert('Table row clicked!');
         // Your custom code here
       });
       function confirmDelete(userId) {
