@@ -22,7 +22,7 @@
                   </thead>
                   <tbody>
                   @foreach($users as $user)
-                    <tr>
+                    <tr data-user-id="{{ $user->id }}" class="clickable-row">
                       <td style="cursor: pointer;" id="Click-Table" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -83,7 +83,9 @@
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <div id="user-details">
+              <!-- User details will be dynamically updated here -->
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
@@ -104,4 +106,30 @@
         }
       }
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const rows = document.querySelectorAll('.clickable-row');
+        const userDetailsContainer = document.getElementById('user-details');
+
+        rows.forEach(row => {
+          row.addEventListener('click', function () {
+            const userId = row.getAttribute('data-user-id');
+
+            // Fetch user details using AJAX
+            fetch(`/users/${userId}`)
+              .then(response => response.json())
+              .then(user => {
+                // Update the modal content with the fetched user details
+                userDetailsContainer.innerHTML = `
+                  <h6 class="mb-0 text-sm">${user.name}</h6>
+                  <p class="text-xs text-secondary mb-0">${user.email}</p>
+                  <!-- Add more user details here -->
+                `;
+              })
+              .catch(error => console.error('Error:', error));
+          });
+        });
+      });
+    </script>
+
 </x-app-layout>
