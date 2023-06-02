@@ -47,24 +47,26 @@
                       </select>
                     </div>
                   </div>
+                  <div class="form-group row">
                   <div class="col-lg-3">
-                    <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Juan">
-                  </div>
-                  <div class="col-lg-3">
-                    <label for="middle_name">Middle Name</label>
-                    <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name">
-                  </div>
-                  <div class="col-lg-3">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Dela Cruz">
-                  </div>
-                  <div class="col-lg-3">
-                    <label for="gender">Gender</label>
-                    <select class="form-control" id="gender" name="gender">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
+                      <label for="first_name">First Name</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Juan">
+                    </div>
+                    <div class="col-lg-3">
+                      <label for="middle_name">Middle Name</label>
+                      <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name">
+                    </div>
+                    <div class="col-lg-3">
+                      <label for="last_name">Last Name</label>
+                      <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Dela Cruz">
+                    </div>
+                    <div class="col-lg-3">
+                      <label for="gender">Gender</label>
+                      <select class="form-control" id="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-lg-6">
