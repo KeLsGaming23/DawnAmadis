@@ -82,26 +82,36 @@
                   </div>
                 </div>
                 
-                <div class="form-group row" id="parentFields" style="display: none;">
-                  <div class="col-lg-6">
-                    <label for="fathers_name">Father's Name</label>
-                    <input type="text" class="form-control" id="fathers_name" name="fathers_name" placeholder="Father's Name">
+                <div id="parentFields" style="display: none;">
+                  <div class="form-group row">
+                    <div class="col-lg-6">
+                      <label for="fathers_name">Father's Name</label>
+                      <input type="text" class="form-control" id="fathers_name" name="fathers_name" placeholder="Father's Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="occupation">Occupation</label>
+                      <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+                    </div>
                   </div>
-                  <div class="col-lg-6">
-                    <label for="mothers_name">Mother's Name</label>
-                    <input type="text" class="form-control" id="mothers_name" name="mothers_name" placeholder="Mother's Name">
+                  <div class="form-group row">
+                    <div class="col-lg-6">
+                      <label for="mothers_name">Mother's Name</label>
+                      <input type="text" class="form-control" id="mothers_name" name="mothers_name" placeholder="Mother's Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="occupation">Occupation</label>
+                      <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+                    </div>
                   </div>
-                  <div class="col-lg-6">
-                    <label for="occupation">Occupation</label>
-                    <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Address">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="contact_no">Contact No.</label>
-                    <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No.">
+                  <div class="form-group row">
+                    <div class="col-lg-6">
+                      <label for="address">Address</label>
+                      <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="contact_no">Contact No.</label>
+                      <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No.">
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row">
