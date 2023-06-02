@@ -68,29 +68,7 @@
                   </div>
                 </div>
 
-                <div class="form-group row">
-                  <div class="col-lg-4">
-                    <label for="profile_picture">Profile Photo</label>
-                    <input class="form-control" type="file" name="profile_picture" accept=".jpg, .png" id="profile_picture">
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="old_student">Old Student?</label>
-                    <select class="form-control" id="old_student" name="old_student">
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-4">
-                    <label for="school_years_id">School Year</label>
-                    <select class="form-control" id="school_years_id" name="school_years_id">
-                      @foreach($schoolYears as $schoolYear)
-                      <option value="{{ $schoolYear->id }}">{{ $schoolYear->school_year }}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group row">
+                <div class="form-group row" id="studentFields">
                   <div class="col-lg-3">
                     <label for="first_name">First Name</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Juan">
@@ -138,16 +116,20 @@
       const roleSelect = document.getElementById('role');
       // Get the parent fields container
       const parentFields = document.getElementById('parentFields');
+      // Get the student fields container
+      const studentFields = document.getElementById('studentFields');
 
       // Function to handle role change
       function handleRoleChange() {
         const selectedRole = roleSelect.value;
 
-        // Show/hide parent fields based on the selected role
+        // Show/hide parent fields and student fields based on the selected role
         if (selectedRole === 'Parent') {
           parentFields.style.display = 'block';
+          studentFields.style.display = 'none';
         } else {
           parentFields.style.display = 'none';
+          studentFields.style.display = 'block';
         }
       }
 
@@ -156,5 +138,5 @@
 
       // Call the handleRoleChange function initially to set the initial state
       handleRoleChange();
-    </script>  
+    </script>
 </x-app-layout>
