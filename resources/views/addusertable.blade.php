@@ -15,7 +15,7 @@
             @endif
             <div class="card-body">
               <form action="{{ route('store.user') }}" method="POST" enctype="multipart/form-data">
-              @csrf
+                @csrf
                 <div class="form-group">
                   <div class="col-lg-6">
                     <label for="role">Role</label>
@@ -28,27 +28,50 @@
                   </div>
                   <div class="col-lg-6">
                     <label for="grade">Grade</label>
-                      <select class="form-control" id="grade" name="grade">
-                        <option value="Kinder">Kinder</option>
-                        <option value="Prep">Prep</option>
-                        <option value="Grade 1">Grade 1</option>
-                        <option value="Grade 2">Grade 2</option>
-                        <option value="Grade 3">Grade 3</option>
-                        <option value="Grade 4">Grade 4</option>
-                        <option value="Grade 5">Grade 5</option>
-                        <option value="Grade 6">Grade 6</option>
-                        <option value="Grade 7">Grade 7</option>
-                        <option value="Grade 8">Grade 8</option>
-                        <option value="Grade 9">Grade 9</option>
-                        <option value="Grade 10">Grade 10</option>
-                      </select>
+                    <select class="form-control" id="grade" name="grade">
+                      <option value="Kinder">Kinder</option>
+                      <option value="Prep">Prep</option>
+                      <option value="Grade 1">Grade 1</option>
+                      <option value="Grade 2">Grade 2</option>
+                      <option value="Grade 3">Grade 3</option>
+                      <option value="Grade 4">Grade 4</option>
+                      <option value="Grade 5">Grade 5</option>
+                      <option value="Grade 6">Grade 6</option>
+                      <option value="Grade 7">Grade 7</option>
+                      <option value="Grade 8">Grade 8</option>
+                      <option value="Grade 9">Grade 9</option>
+                      <option value="Grade 10">Grade 10</option>
+                    </select>
                   </div>
                 </div>
+
+                <div class="form-group row" id="parentFields" style="display: none;">
+                  <div class="col-lg-6">
+                    <label for="fathers_name">Father's Name</label>
+                    <input type="text" class="form-control" id="fathers_name" name="fathers_name" placeholder="Father's Name">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="mothers_name">Mother's Name</label>
+                    <input type="text" class="form-control" id="mothers_name" name="mothers_name" placeholder="Mother's Name">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="contact_no">Contact No.</label>
+                    <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No.">
+                  </div>
+                </div>
+
                 <div class="form-group row">
                   <div class="col-lg-4">
                     <label for="profile_picture">Profile Photo</label>
-                    <input class="form-control" type="file" name="profile_picture" accept=".jpg, .png" 
-                      id="profile_picture">
+                    <input class="form-control" type="file" name="profile_picture" accept=".jpg, .png" id="profile_picture">
                   </div>
                   <div class="col-lg-4">
                     <label for="old_student">Old Student?</label>
@@ -60,13 +83,13 @@
                   <div class="col-lg-4">
                     <label for="school_years_id">School Year</label>
                     <select class="form-control" id="school_years_id" name="school_years_id">
-                    @foreach($schoolYears as $schoolYear)
-                        <option value="{{ $schoolYear->id }}">{{ $schoolYear->school_year }}</option>
-                    @endforeach
+                      @foreach($schoolYears as $schoolYear)
+                      <option value="{{ $schoolYear->id }}">{{ $schoolYear->school_year }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
-                
+
                 <div class="form-group row">
                   <div class="col-lg-3">
                     <label for="first_name">First Name</label>
@@ -91,8 +114,8 @@
                 <div class="form-group row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="birth_date" class="form-control-label">Birth Date</label>
-                        <input class="form-control" type="date" value="2023-01-01" id="birth_date" name="birth_date">
+                      <label for="birth_date" class="form-control-label">Birth Date</label>
+                      <input class="form-control" type="date" value="2023-01-01" id="birth_date" name="birth_date">
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -109,5 +132,29 @@
           </div>
         </div>  
       </div>  
-    </div>  
+    </div>
+    <script>
+      // Get the role select element
+      const roleSelect = document.getElementById('role');
+      // Get the parent fields container
+      const parentFields = document.getElementById('parentFields');
+
+      // Function to handle role change
+      function handleRoleChange() {
+        const selectedRole = roleSelect.value;
+
+        // Show/hide parent fields based on the selected role
+        if (selectedRole === 'Parent') {
+          parentFields.style.display = 'block';
+        } else {
+          parentFields.style.display = 'none';
+        }
+      }
+
+      // Attach the event listener to the role select element
+      roleSelect.addEventListener('change', handleRoleChange);
+
+      // Call the handleRoleChange function initially to set the initial state
+      handleRoleChange();
+    </script>  
 </x-app-layout>
