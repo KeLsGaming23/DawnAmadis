@@ -48,7 +48,29 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                  <div class="col-lg-3">
+                    <div class="col-lg-4">
+                      <label for="profile_picture">Profile Photo</label>
+                      <input class="form-control" type="file" name="profile_picture" accept=".jpg, .png" 
+                        id="profile_picture">
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="old_student">Old Student?</label>
+                      <select class="form-control" id="old_student" name="old_student">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4">
+                      <label for="school_years_id">School Year</label>
+                      <select class="form-control" id="school_years_id" name="school_years_id">
+                      @foreach($schoolYears as $schoolYear)
+                          <option value="{{ $schoolYear->id }}">{{ $schoolYear->school_year }}</option>
+                      @endforeach
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-3">
                       <label for="first_name">First Name</label>
                       <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Juan">
                     </div>
