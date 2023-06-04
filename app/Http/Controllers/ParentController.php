@@ -11,34 +11,35 @@ class ParentController extends Controller
     public function store(Request $request)
     {
         // Create a new parent record
-        $parent = new Parents;
-        $parent->fathers_name = $request->input('fathers_name');
-        $parent->fathers_occupation = $request->input('fathers_occupation');
-        $parent->mothers_name = $request->input('mothers_name');
-        $parent->mothers_occupation = $request->input('mothers_occupation');
-        $parent->guardian_name = $request->input('guardian_name');
-        $parent->guardian_contact_no = $request->input('guardian_contact_no');
-        $parent->address = $request->input('address');
-        $parent->contact_no = $request->input('contact_no');
-        $parent->save();
+        $parent = Parent::create([
+            'fathers_name' => $request->input('fathers_name'),
+            'fathers_occupation' => $request->input('fathers_occupation'),
+            'mothers_name' => $request->input('mothers_name'),
+            'mothers_occupation' => $request->input('mothers_occupation'),
+            'guardian_name' => $request->input('guardian_name'),
+            'guardian_contact_no' => $request->input('guardian_contact_no'),
+            'address' => $request->input('address'),
+            'contact_no' => $request->input('contact_no'),
+        ]);
 
-        // Get the IDs of the children from the request
-        $childIds = [];
-        foreach ($request->all() as $key => $value) {
-            if (strpos($key, 'inputField') === 0) {
-                $childIds[] = $value;
-            }
+        // Retrieve the child data from the request
+        $childData = $request->only(
+            collect($request->all())->filter(function ($value, $key) {
+                return str_starts_with($key, 'inputField');
+            })->keys()->toArray()
+        );
+
+        // Loop through the child data and create child records
+        foreach ($childData as $studentId) {
+            // Create a new child record
+            Child::create([
+                'parent_id' => $parent->id,
+                'student_id' => $studentId,
+            ]);
         }
 
-        // Create child-parent relationships
-        foreach ($childIds as $childId) {
-            $child = new Child;
-            $child->parent_id = $parent->id;
-            $child->student_id = $childId;
-            $child->save();
-        }
+        // Redirect or perform any additional actions after saving the data
 
-        // Redirect or return a response
-        return redirect()->back()->with('success', 'Parent and children information successfully saved.');
+        return redirect()->route('parent.index');
     }
 }
