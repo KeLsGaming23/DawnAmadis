@@ -14,19 +14,19 @@
               </div>
             @endif
             <div class="card-body">
+            <div class="form-group">
+                <div class="col-lg-6">
+                  <label for="role">Role</label>
+                  <select class="form-control" id="role" name="role">
+                    <option value="Student">Student</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Staff">Staff</option>
+                  </select>
+                </div>
+              </div>
               <form action="{{ route('store.user') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                  <div class="col-lg-6">
-                    <label for="role">Role</label>
-                    <select class="form-control" id="role" name="role">
-                      <option value="Student">Student</option>
-                      <option value="Parent">Parent</option>
-                      <option value="Teacher">Teacher</option>
-                      <option value="Staff">Staff</option>
-                    </select>
-                  </div>
-                </div>
                 <div class="form-group row" id="studentFields">
                   <div class="form-group">
                     <div class="col-lg-6">
@@ -104,7 +104,15 @@
                   </div>
                 </div>
                 
-                <div id="parentFields" style="display: none;">
+                
+                <div class="form-group row">
+                  <span class="col-lg-9"></span>
+                  <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
+                </div>
+              </form>
+              <form action="{{ route('parents.store') }}" method="POST">
+              @csrf
+              <div id="parentFields" style="display: none;">
                   <div class="form-group row">
                     <div class="col-lg-6">
                       <label for="fathers_name">Father's Name</label>
@@ -153,10 +161,10 @@
                       <!-- //Add Child Dynamically -->
                     </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <span class="col-lg-9"></span>
-                  <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
+                  <div class="form-group row">
+                    <span class="col-lg-9"></span>
+                    <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
+                  </div>
                 </div>
               </form>
             </div>
