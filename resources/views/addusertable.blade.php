@@ -206,7 +206,7 @@
 
         // Retrieve student basic information data to populate the datalist options
         // Replace 'api/endpoint' with the actual API endpoint or URL to fetch the student data
-        fetch('api/endpoint')
+        fetch('https://dawnamadis.com/api/get.student.name')
             .then(response => response.json())
             .then(data => {
                 // Iterate over the data and create an option element for each child
