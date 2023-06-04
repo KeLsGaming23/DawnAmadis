@@ -11,7 +11,7 @@ class ParentController extends Controller
     public function store(Request $request)
     {
         // Create a new parent record
-        $parent = Parent::create([
+        $parent = Parents::create([
             'fathers_name' => $request->input('fathers_name'),
             'fathers_occupation' => $request->input('fathers_occupation'),
             'mothers_name' => $request->input('mothers_name'),
