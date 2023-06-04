@@ -110,7 +110,7 @@
                   <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
                 </div>
               </form>
-              <form action="{{ route('parents.store') }}" method="POST">
+              <form action="" method="POST">
               @csrf
               <div id="parentFields" style="display: none;">
                   <div class="form-group row">
