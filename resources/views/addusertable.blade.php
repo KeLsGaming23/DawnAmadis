@@ -204,13 +204,12 @@
         const datalist = document.createElement("datalist");
         datalist.id = "datalist" + counter;
 
-        fetch('https://dawnamadis.com/api/get.student.info') // Update the API endpoint to fetch student information
+        fetch('https://dawnamadis.com/api/get.student.info')
             .then(response => response.json())
             .then(data => {
                 data.forEach(student => {
                     const option = document.createElement("option");
                     option.value = student.name; // Set the value of the option to the student name
-                    option.setAttribute("data-id", student.id); // Set the data-id attribute to the student ID
                     datalist.appendChild(option);
                 });
             })
@@ -230,6 +229,7 @@
 
         counter++; // Increment the counter
     }
+
 
 
 
