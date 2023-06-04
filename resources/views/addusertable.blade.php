@@ -183,8 +183,8 @@
         const label = document.createElement("label");
         input.type = "text";
         input.name = "inputField" + counter; // Set the name with the counter
-        input.class = "form-control";
-        label.for = "inputField" + counter;
+        input.className = "form-control";
+        label.setAttribute("for", "inputField" + counter);
         label.innerHTML = "Child " + counter;
         container.appendChild(label);
         container.appendChild(input);
