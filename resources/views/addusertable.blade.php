@@ -178,17 +178,6 @@
       let counter = 1;
 
       // Function
-      function handleRoleChange() {
-        const selectedRole = roleSelect.value;
-        // Show/hide parent fields and student fields based on the selected role
-        if (selectedRole === 'Parent') {
-          parentFields.style.display = 'block';
-          studentFields.style.display = 'none';
-        } else {
-          parentFields.style.display = 'none';
-          studentFields.style.display = 'block';
-        }
-      }
       function addInputField() {
         const container = document.getElementById("inputFieldsContainer");
 
@@ -205,7 +194,6 @@
         datalist.id = "datalist" + counter;
 
         // Retrieve student basic information data to populate the datalist options
-        // Replace 'api/endpoint' with the actual API endpoint or URL to fetch the student data
         fetch('https://dawnamadis.com/api/get.student.name')
             .then(response => response.json())
             .then(data => {
@@ -229,6 +217,16 @@
         container.appendChild(label);
         container.appendChild(input);
         container.appendChild(datalist);
+
+        // Enable autocomplete for the input field
+        input.addEventListener('input', function() {
+            const inputValue = this.value;
+            const options = Array.from(datalist.options);
+            const matchingOption = options.find(option => option.value.toLowerCase() === inputValue.toLowerCase());
+            if (matchingOption) {
+                this.value = matchingOption.value;
+            }
+        });
 
         counter++; // Increment the counter
     }
