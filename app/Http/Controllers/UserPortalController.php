@@ -118,4 +118,14 @@ class UserPortalController extends Controller
     
         return response()->json(['data' => $userDetails]);
     }
+    public function getStudentName(){
+        $students = StudentBasicInformation::all();
+        $studentsName = [];
+
+        foreach ($students as $student){
+            $fullName = $student->last_name . ", " . $student->first_name;
+            $studentsName[] = $fullName;
+        }
+        return response()->json($studentsName);
+    }
 }

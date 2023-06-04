@@ -15,6 +15,7 @@ use App\Http\Controllers\UserPortalController;
 |
 */
 Route::get('/users/{userId}', [UserPortalController::class, 'getUserDetails']);
+Route::get('get.student.name', [UserPortalController::class, 'getStudentName']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
