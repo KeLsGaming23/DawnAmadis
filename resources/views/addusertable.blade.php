@@ -204,17 +204,20 @@
         const datalist = document.createElement("datalist");
         datalist.id = "datalist" + counter;
 
-        fetch('https://dawnamadis.com/api/get.student.info')
+        // Retrieve student basic information data to populate the datalist options
+        // Replace 'api/endpoint' with the actual API endpoint or URL to fetch the student data
+        fetch('api/endpoint')
             .then(response => response.json())
             .then(data => {
-                data.forEach(student => {
+                // Iterate over the data and create an option element for each child
+                data.forEach(child => {
                     const option = document.createElement("option");
-                    option.value = student.name; // Set the value of the option to the student name
+                    option.value = child.child_name; // Set the value of the option
                     datalist.appendChild(option);
                 });
             })
             .catch(error => {
-                console.error('Error fetching student information:', error);
+                console.error('Error fetching student data:', error);
             });
 
         input.setAttribute("list", "datalist" + counter); // Set the datalist ID for the input
@@ -229,6 +232,7 @@
 
         counter++; // Increment the counter
     }
+
 
 
 
