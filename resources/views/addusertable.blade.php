@@ -212,7 +212,7 @@
                 // Iterate over the data and create an option element for each child
                 data.forEach(child => {
                     const option = document.createElement("option");
-                    option.value = child.child_name; // Set the value of the option
+                    option.value = child.name; // Set the value of the option
                     datalist.appendChild(option);
                 });
             })
