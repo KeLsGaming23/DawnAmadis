@@ -108,7 +108,7 @@
                   </div>
                 </div>
               </form>
-              <form action="" method="POST">
+              <form action="{{route('add-parent-info')}}" method="POST">
               @csrf
               <div id="parentFields" style="display: none;">
                   <div class="form-group row">

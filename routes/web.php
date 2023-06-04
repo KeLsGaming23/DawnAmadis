@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\UserPortalController;
@@ -52,4 +53,6 @@ Route::delete('/users/{user}', [UserPortalController::class, 'sDeletes'])
 
 Route::get('/users/{userId}', [UserPortalController::class, 'getUserDetails']);
 
+Route::post('/add-parent-info', [ParentController::class, 'store'])   
+    ->name('add-parent-info');
 require __DIR__.'/auth.php';
