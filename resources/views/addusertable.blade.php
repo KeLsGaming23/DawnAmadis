@@ -135,6 +135,18 @@
                       <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No.">
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <button class="btn bg-gradient-default col-lg-3" type="button" onclick="addInputField()">
+                    Add Another Child
+                    </button>
+                    <div class="col-lg-6" id="inputFieldsContainer">
+                      <!-- //Add Child Dynamically -->
+                    </div>
+                    <div class="col-lg-6">
+                      <label for="contact_no">Contact No.</label>
+                      <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Contact No.">
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group row">
                   <span class="col-lg-9"></span>
@@ -147,17 +159,15 @@
       </div>  
     </div>
     <script>
-      // Get the role select element
+      //Variable Declaration
       const roleSelect = document.getElementById('role');
-      // Get the parent fields container
       const parentFields = document.getElementById('parentFields');
-      // Get the student fields container
       const studentFields = document.getElementById('studentFields');
+      let counter = 1;
 
-      // Function to handle role change
+      // Function
       function handleRoleChange() {
         const selectedRole = roleSelect.value;
-
         // Show/hide parent fields and student fields based on the selected role
         if (selectedRole === 'Parent') {
           parentFields.style.display = 'block';
@@ -167,7 +177,18 @@
           studentFields.style.display = 'block';
         }
       }
-
+      function addInputField() {
+        const container = document.getElementById("inputFieldsContainer");
+        const input = document.createElement("input");
+        const label = document.createElement("label");
+        input.type = "text";
+        input.name = "inputField" + counter; // Set the name with the counter
+        label.for = "inputField" + counter;
+        label.innerHTML = "Child " + counter;
+        container.appendChild(label);
+        container.appendChild(input);
+        counter++; // Increment the counter
+      }
       // Attach the event listener to the role select element
       roleSelect.addEventListener('change', handleRoleChange);
 
