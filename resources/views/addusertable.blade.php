@@ -127,6 +127,12 @@
                   </div>
                   <div class="form-group row">
                     <div class="col-lg-6">
+                      <label for="guardian_name">Guardian's Name</label>
+                      <input type="text" class="form-control" id="guardian_name" name="guardian_name" placeholder="Guardian's Name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-lg-6">
                       <label for="address">Address</label>
                       <input type="text" class="form-control" id="address" name="address" placeholder="Address">
                     </div>
