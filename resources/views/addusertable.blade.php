@@ -204,19 +204,19 @@
         const datalist = document.createElement("datalist");
         datalist.id = "datalist" + counter;
 
-        fetch('https://dawnamadis.com/api/get.student.name')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(studentName => {
-                const option = document.createElement("option");
-                option.value = studentName; // Set the value of the option to the student name
-                datalist.appendChild(option);
+        fetch('https://dawnamadis.com/api/get.student.info') // Update the API endpoint to fetch student ID and name
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(student => {
+                    const option = document.createElement("option");
+                    option.value = student.name; // Set the value of the option to the student name
+                    option.setAttribute("data-id", student.id); // Set the data-id attribute to the student ID
+                    datalist.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching student information:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error fetching student names:', error);
-        });
-
 
         input.setAttribute("list", "datalist" + counter); // Set the datalist ID for the input
 
@@ -230,6 +230,7 @@
 
         counter++; // Increment the counter
     }
+
 
       // Attach the event listener to the role select element
       roleSelect.addEventListener('change', handleRoleChange);
