@@ -212,7 +212,8 @@
                 // Iterate over the data and create an option element for each child
                 data.forEach(child => {
                     const option = document.createElement("option");
-                    option.value = child.name; // Set the value of the option
+                    option.value = child.id; // Set the value of the option
+                    option.innerHTML = `${child.name}`;
                     datalist.appendChild(option);
                 });
             })
@@ -232,11 +233,6 @@
 
         counter++; // Increment the counter
     }
-
-
-
-
-
       // Attach the event listener to the role select element
       roleSelect.addEventListener('change', handleRoleChange);
 
