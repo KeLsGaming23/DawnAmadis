@@ -102,12 +102,10 @@
                       <input type="text" class="form-control" id="place_of_birth" name="place_of_birth" placeholder="Juan">
                     </div>
                   </div>
-                </div>
-                
-                
-                <div class="form-group row">
-                  <span class="col-lg-9"></span>
-                  <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
+                  <div class="form-group row">
+                    <span class="col-lg-9"></span>
+                    <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
+                  </div>
                 </div>
               </form>
               <form action="" method="POST">
