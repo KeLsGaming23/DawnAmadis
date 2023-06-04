@@ -204,7 +204,7 @@
         const datalist = document.createElement("datalist");
         datalist.id = "datalist" + counter;
 
-        fetch('https://dawnamadis.com/api/get.student.info') // Update the API endpoint to fetch student ID and name
+        fetch('https://dawnamadis.com/api/get.student.info') // Update the API endpoint to fetch student information
             .then(response => response.json())
             .then(data => {
                 data.forEach(student => {
@@ -230,6 +230,7 @@
 
         counter++; // Increment the counter
     }
+
 
 
       // Attach the event listener to the role select element
