@@ -191,19 +191,46 @@
       }
       function addInputField() {
         const container = document.getElementById("inputFieldsContainer");
+
+        // Create the input element
         const input = document.createElement("input");
-        const label = document.createElement("label");
         input.type = "text";
         input.name = "inputField" + counter; // Set the name with the counter
         input.className = "form-control";
         input.placeholder = "Child " + counter;
         input.id = "inputField" + counter;
+
+        // Create the datalist element
+        const datalist = document.createElement("datalist");
+        datalist.id = "datalist" + counter;
+
+        fetch('https://dawnamadis.com/api/get.student.name')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(studentName => {
+                const option = document.createElement("option");
+                option.value = studentName; // Set the value of the option to the student name
+                datalist.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching student names:', error);
+        });
+
+
+        input.setAttribute("list", "datalist" + counter); // Set the datalist ID for the input
+
+        const label = document.createElement("label");
         label.setAttribute("for", "inputField" + counter);
         label.innerHTML = "Child " + counter;
+
         container.appendChild(label);
         container.appendChild(input);
+        container.appendChild(datalist);
+
         counter++; // Increment the counter
-      }
+    }
+
       // Attach the event listener to the role select element
       roleSelect.addEventListener('change', handleRoleChange);
 
