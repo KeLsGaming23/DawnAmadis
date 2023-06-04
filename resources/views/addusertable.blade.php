@@ -184,6 +184,8 @@
         input.type = "text";
         input.name = "inputField" + counter; // Set the name with the counter
         input.className = "form-control";
+        input.placeholder = "Child " + counter;
+        input.id = "inputField" + counter;
         label.setAttribute("for", "inputField" + counter);
         label.innerHTML = "Child " + counter;
         container.appendChild(label);
