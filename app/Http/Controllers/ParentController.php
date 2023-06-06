@@ -23,11 +23,12 @@ class ParentController extends Controller
         ]);
 
         // Retrieve the child data from the request
-        $childData = $request->only(
-            collect($request->all())->filter(function ($value, $key) {
-                return str_starts_with($key, 'inputField');
-            })->keys()->toArray()
-        );
+        $childData = collect($request->all())->filter(function ($value, $key) {
+            return str_starts_with($key, 'inputField');
+        })->map(function ($value) {
+            return $value['data-id'];
+        })->toArray();
+
 
         // Loop through the child data and create child records
         foreach ($childData as $studentId) {
