@@ -185,7 +185,7 @@
                     <a class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</a>
                     <div id="selectFieldsContainer">
                       <div class="select-wrapper">
-                        <input type="text" class="searchInput form-control" placeholder="Search options..." onfocus="showOptions(this)">
+                        <input type="text" class="searchInput" placeholder="Search options..." onfocus="showOptions(this)">
                         <div class="select-options"></div>
                       </div>
                     </div>
