@@ -193,12 +193,11 @@
         const container = document.getElementById("inputFieldsContainer");
 
         // Create the input element
-        const input = document.createElement("input");
-        input.type = "text";
-        input.name = "inputField" + counter; // Set the name with the counter
-        input.className = "form-control";
-        input.placeholder = "Child " + counter;
-        input.id = "inputField" + counter;
+        const select = document.createElement("select");
+        select.name = "inputField" + counter; // Set the name with the counter
+        select.className = "form-control";
+        select.placeholder = "Child " + counter;
+        select.id = "choices-button";
 
         // Create the datalist element
         const datalist = document.createElement("datalist");
