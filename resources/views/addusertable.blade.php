@@ -199,10 +199,6 @@
         select.placeholder = "Child " + counter;
         select.id = "choices-button";
 
-        // Create the datalist element
-        const datalist = document.createElement("datalist");
-        datalist.id = "datalist" + counter;
-
         // Retrieve student basic information data to populate the datalist options
         // Replace 'api/endpoint' with the actual API endpoint or URL to fetch the student data
         fetch('https://dawnamadis.com/api/get.student.name')
@@ -213,7 +209,7 @@
                     const option = document.createElement("option");
                     option.value = child.id; // Set the value of the option
                     option.innerHTML = `${child.name}`;
-                    datalist.appendChild(option);
+                    select.appendChild(option);
                 });
             })
             .catch(error => {
