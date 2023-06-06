@@ -220,8 +220,6 @@
                 console.error('Error fetching student data:', error);
             });
 
-        input.setAttribute("list", "datalist" + counter); // Set the datalist ID for the input
-
         const label = document.createElement("label");
         label.setAttribute("for", "inputField" + counter);
         label.innerHTML = "Child " + counter;
