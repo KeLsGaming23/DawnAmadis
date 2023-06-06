@@ -185,8 +185,7 @@
                     <a class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</a>
                     <div id="selectFieldsContainer">
                       <div class="select-wrapper">
-                        <input type="text" class="searchInput" placeholder="Search options..." onfocus="showOptions(this)">
-                        <div class="select-options"></div>
+                        <!-- Dynamic Input added here -->
                       </div>
                     </div>
                   </div>
@@ -266,7 +265,7 @@
         const newSelectField = document.createElement('div');
         newSelectField.classList.add('select-wrapper');
         newSelectField.innerHTML = `
-          <input type="text" class="searchInput" placeholder="Search options..." onfocus="showOptions(this)">
+          <input type="text" class="searchInput" name="inputField${selectFieldCounter}" placeholder="Search options..." onfocus="showOptions(this)">
           <div class="select-options"></div>
         `;
         selectFieldsContainer.appendChild(newSelectField);
