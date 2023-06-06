@@ -227,7 +227,7 @@
         label.innerHTML = "Child " + counter;
 
         container.appendChild(label);
-        container.appendChild(input);
+        container.appendChild(select);
         container.appendChild(datalist);
 
         counter++; // Increment the counter
