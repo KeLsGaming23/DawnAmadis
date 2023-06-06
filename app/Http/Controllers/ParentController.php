@@ -30,7 +30,7 @@ class ParentController extends Controller
         ->map(function ($value) {
             $matches = [];
             preg_match('/data-id="(\d+)"/', $value, $matches);
-            return intval($matches[1] ?? 0);
+            return ($matches[1] ?? 0);
         })
         ->toArray();    
 
