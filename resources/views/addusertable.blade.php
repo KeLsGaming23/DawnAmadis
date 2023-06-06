@@ -195,7 +195,7 @@
         // Create the input element
         const select = document.createElement("select");
         select.name = "inputField" + counter; // Set the name with the counter
-        select.className = "form-control";
+        select.className = "form-control choices__input";
         select.placeholder = "Child " + counter;
         select.id = "choices-button";
 
