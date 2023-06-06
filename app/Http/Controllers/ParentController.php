@@ -40,7 +40,7 @@ class ParentController extends Controller
             // Create a new child record
             Child::create([
                 'parent_id' => $parent->id,
-                'student_id' => $studentId,
+                'student_id' => 1,
             ]);
         }
 
