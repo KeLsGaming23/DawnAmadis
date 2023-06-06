@@ -40,6 +40,6 @@ class ParentController extends Controller
 
         // Redirect or perform any additional actions after saving the data
 
-        return redirect()->route('parent.index');
+        return Redirect()->back()->with('success', 'User created successfully.');
     }
 }
