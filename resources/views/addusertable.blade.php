@@ -1,5 +1,35 @@
 
 <x-app-layout>
+  <style>
+    .select-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .select-wrapper input {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .select-options {
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 100%;
+      display: none;
+    }
+
+    .select-options div {
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .select-options div:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -152,11 +182,12 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <button class="btn bg-gradient-default col-lg-3" type="button" onclick="addInputField()">
-                    Add Another Child
-                    </button>
-                    <div class="col-lg-6" id="inputFieldsContainer">
-                      <!-- //Add Child Dynamically -->
+                    <button class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</button>
+                    <div id="selectFieldsContainer">
+                      <div class="select-wrapper">
+                        <input type="text" class="searchInput form-control" placeholder="Search options..." onfocus="showOptions(this)">
+                        <div class="select-options"></div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -175,9 +206,9 @@
       const roleSelect = document.getElementById('role');
       const parentFields = document.getElementById('parentFields');
       const studentFields = document.getElementById('studentFields');
-      let counter = 1;
 
-      // Function
+      let selectFieldCounter = 1;
+
       function handleRoleChange() {
         const selectedRole = roleSelect.value;
         // Show/hide parent fields and student fields based on the selected role
@@ -189,47 +220,57 @@
           studentFields.style.display = 'block';
         }
       }
-      function addInputField() {
-        const container = document.getElementById("inputFieldsContainer");
-
-        // Create the input element
-        const select = document.createElement("select");
-        select.name = "inputField" + counter; // Set the name with the counter
-        select.className = "form-control choices__input";
-        select.placeholder = "Child " + counter;
-        select.id = "choices-button";
-
-        // Retrieve student basic information data to populate the datalist options
-        // Replace 'api/endpoint' with the actual API endpoint or URL to fetch the student data
-        fetch('https://dawnamadis.com/api/get.student.name')
-            .then(response => response.json())
-            .then(data => {
-                // Iterate over the data and create an option element for each child
-                data.forEach(child => {
-                    const option = document.createElement("option");
-                    option.value = child.id; // Set the value of the option
-                    option.innerHTML = `${child.name}`;
-                    select.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching student data:', error);
-            });
-
-        const label = document.createElement("label");
-        label.setAttribute("for", "inputField" + counter);
-        label.innerHTML = "Child " + counter;
-
-        container.appendChild(label);
-        container.appendChild(select);
-        container.appendChild(datalist);
-
-        counter++; // Increment the counter
-    }
-      // Attach the event listener to the role select element
       roleSelect.addEventListener('change', handleRoleChange);
 
       // Call the handleRoleChange function initially to set the initial state
       handleRoleChange();
+      //For Select-Like input
+      function showOptions(input) {
+        const selectOptions = input.nextElementSibling;
+        if (selectOptions.innerHTML === '') {
+          fetchData(selectOptions);
+        }
+        selectOptions.style.display = 'block';
+      }
+
+      function hideOptions(selectOptions) {
+        selectOptions.style.display = 'none';
+      }
+
+      function selectOption(element) {
+        const input = element.parentNode.previousElementSibling;
+        input.value = element.textContent;
+        hideOptions(element.parentNode);
+      }
+
+      async function fetchData(selectOptions) {
+        try {
+          const response = await fetch('https://dawnamadis.com/api/get.student.name');
+          const data = await response.json();
+          populateOptions(data, selectOptions);
+        } catch (error) {
+          console.log('Error:', error);
+        }
+      }
+
+      function populateOptions(data, selectOptions) {
+        let optionsHTML = '';
+        data.forEach((item) => {
+          optionsHTML += `<div onclick="selectOption(this)" data-id="${item.id}">${item.name}</div>`;
+        });
+        selectOptions.innerHTML = optionsHTML;
+      }
+
+      function addSelectField() {
+        const selectFieldsContainer = document.getElementById('selectFieldsContainer');
+        const newSelectField = document.createElement('div');
+        newSelectField.classList.add('select-wrapper');
+        newSelectField.innerHTML = `
+          <input type="text" class="searchInput" placeholder="Search options..." onfocus="showOptions(this)">
+          <div class="select-options"></div>
+        `;
+        selectFieldsContainer.appendChild(newSelectField);
+        selectFieldCounter++;
+      }
     </script>
 </x-app-layout>
