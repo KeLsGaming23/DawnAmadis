@@ -127,6 +127,7 @@ class UserPortalController extends Controller
             $studentInfo = [
                 'id' => $student->id,
                 'name' => $student->last_name . ', ' . $student->first_name,
+                'profile_picture' => $student->profile_picture,
             ];
             $studentsInfo[] = $studentInfo;
         }
