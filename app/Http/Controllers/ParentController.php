@@ -26,7 +26,7 @@ class ParentController extends Controller
         $childData = collect($request->all())->filter(function ($value, $key) {
             return str_starts_with($key, 'inputField');
         })->map(function ($value) {
-            return $value['data-id'];
+            return intval($value);
         })->toArray();
 
 
