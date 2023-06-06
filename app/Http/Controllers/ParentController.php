@@ -23,11 +23,16 @@ class ParentController extends Controller
         ]);
 
         // Retrieve the child data from the request
-        $childData = collect($request->all())->filter(function ($value, $key) {
+        $childData = collect($request->all())
+        ->filter(function ($value, $key) {
             return str_starts_with($key, 'inputField');
-        })->map(function ($value) {
-            return intval($value);
-        })->toArray();
+        })
+        ->map(function ($value) {
+            $matches = [];
+            preg_match('/data-id="(\d+)"/', $value, $matches);
+            return intval($matches[1] ?? 0);
+        })
+        ->toArray();    
 
 
         // Loop through the child data and create child records
