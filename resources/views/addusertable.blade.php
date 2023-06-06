@@ -182,7 +182,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <button class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</button>
+                    <a class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</a>
                     <div id="selectFieldsContainer">
                       <div class="select-wrapper">
                         <input type="text" class="searchInput form-control" placeholder="Search options..." onfocus="showOptions(this)">
