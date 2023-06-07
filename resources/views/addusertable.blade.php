@@ -475,6 +475,7 @@
         checkbox.type = 'checkbox';
         checkbox.value = id;
         checkbox.name = 'checkbox' + checkboxCounter;
+        checkbox.checked = true; // Set the checkbox as checked
         checkboxLabel.innerHTML = name;
 
         checkboxPlaceHolder.appendChild(checkbox);
@@ -482,6 +483,5 @@
 
         checkboxCounter++;
       }
-
     </script>
 </x-app-layout>
