@@ -316,12 +316,16 @@
                   </div>
                   <div class="form-group row">
                     <h1>Search Student</h1>
-                    <div class="col-lg-6"> 
-                      <input class="form-control" type="text" id="searchInput" placeholder="Enter a student name">
-                      <span class="search-icon" onclick="search()">&#128269;</span>
+                    <div class="col-lg-6">
+                      <div class="input-group">
+                        <input class="form-control" type="text" id="searchInput" placeholder="Enter a student name">
+                        <div class="input-group-append">
+                          <span class="search-icon" onclick="search()">&#128269;</span>
+                        </div>
+                      </div>
                     </div>
-                    <div id="checkboxPlaceHolder col-lg-12"></div>
-                    <div id="searchResults col-lg-12" class="wrapper"></div>
+                    <div id="checkboxPlaceHolder" class="col-lg-12"></div>
+                    <div id="searchResults" class="col-lg-12 wrapper"></div>
                   </div>
 
                   <div class="form-group row">
