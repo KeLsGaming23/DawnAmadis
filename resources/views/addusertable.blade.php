@@ -271,7 +271,7 @@
                   </div>
                 </div>
               </form>
-              <form action="{{route('add-parent-info')}}" method="POST" onsubmit="handleSubmit(event)">
+              <form action="{{route('add-parent-info')}}" method="POST">
               @csrf
               <div id="parentFields" style="display: none;">
                   <div class="form-group row">
@@ -362,10 +362,6 @@
         if (event.keyCode === 13) { // 13 represents the Enter key
           search();
         }
-      }
-      function handleSubmit(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        // Additional code for form submission handling if needed
       }
       //Search Function for student
       function search() {
