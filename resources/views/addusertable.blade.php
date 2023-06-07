@@ -1,35 +1,168 @@
 
 <x-app-layout>
-  <style>
-    .select-wrapper {
+  <style> 
+    .wrapper{
+    display: flex;
+    }
+
+    .container{
+      width: 300px;
+      height: 420px;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .img-container{
+      width: 100%;
+      height: 40%;
       position: relative;
-      display: inline-block;
     }
 
-    .select-wrapper input {
+    .img-container img.banner-img{
       width: 100%;
-      padding: 5px;
+      height: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
-    .select-options {
+    .img-container img.profile-img{
       position: absolute;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      max-height: 200px;
-      overflow-y: auto;
-      width: 100%;
-      display: none;
+      bottom: -50px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid #fff;
     }
 
-    .select-options div {
-      padding: 5px;
+    .share{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .share ul{
+      list-style: none;
+    }
+
+    .share ul li{
+      width: 35px;
+      height: 35px;
+      margin-bottom: 5px;
+      border-radius: 50%;
+      border: 2px solid #673BB7;
+      text-align: center;
+      cursor: pointer;
+      transition: all 1s ease;
+    }
+
+    .share ul li .fa{
+      line-height: 35px;
+      color: #673BB7;
+      transition: all 1s ease;
+    }
+
+    .share ul li:hover{
+      background: #673BB7;
+    }
+
+    .share ul li:hover .fa{
+      color: #fff;
+    }
+
+    .content{
+      height: 60%;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 60px 50px 50px;
+      position: relative;
+    }
+
+    .title{
+      text-align: center;
+      color: #673BB7;
+      padding-bottom: 35px;
+    }
+
+    .title p{
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .title span{
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+
+    .follow{
+      text-align: center;
+      border: 2px solid #673BB7;
+      border-radius: 50px;
+      padding: 10px;
+      color: #673BB7;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 1s ease;
+    }
+
+    .follow:hover{
+      color: #fff;
+      background: #673BB7;
+    }
+
+    .heart,
+    .like{
       cursor: pointer;
     }
 
-    .select-options div:hover {
-      background-color: #f2f2f2;
+    .heart:before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-left: 30px solid #673BB7;
+      border-right: 30px solid transparent;
+      border-top: 30px solid transparent;
+      border-bottom: 30px solid #673BB7;
+      border-bottom-left-radius: 8px;
+    }
+
+    .heart:after{
+      font-family: fontawesome;
+      content:"\f08a";
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: #fff;
+    }
+
+
+
+    .like:before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid #673BB7;
+      border-top: 30px solid transparent;
+      border-bottom: 30px solid #673BB7;
+      border-bottom-right-radius: 8px;
+    }
+
+    .like:after{
+      font-family: fontawesome;
+      content:"\f087";
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #fff;
+      font-weight: 300;
     }
   </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -182,12 +315,13 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <a class="btn bg-gradient-default col-lg-3" id="addSelectButton" onclick="addSelectField()">Add Select Field</a>
-                    <div id="selectFieldsContainer">
-                      <div class="select-wrapper">
-                        <!-- Dynamic Input added here -->
+                    <h1>Search Box</h1>
+                    <input type="text" id="searchInput" placeholder="Enter a student name">
+                    <button onclick="search()">Search</button>
+                    <div id="checkboxPlaceHolder"></div>
+                      <div id="searchResults" class="wrapper">
+                        
                       </div>
-                    </div>
                   </div>
                   <div class="form-group row">
                     <span class="col-lg-9"></span>
@@ -223,53 +357,123 @@
 
       // Call the handleRoleChange function initially to set the initial state
       handleRoleChange();
-      //For Select-Like input
-      function showOptions(input) {
-        const selectOptions = input.nextElementSibling;
-        if (selectOptions.innerHTML === '') {
-          fetchData(selectOptions);
+      let checkboxCounter = 1;
+      //Search Function for student
+      function search() {
+        const searchInput = document.getElementById('searchInput');
+        const searchQuery = searchInput.value.trim();
+
+        if (searchQuery === '') {
+          // Clear search results if the search query is empty
+          document.getElementById('searchResults').innerHTML = '';
+          return;
         }
-        selectOptions.style.display = 'block';
+
+        const url = 'https://dawnamadis.com/api/get.student.name';
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const results = data.filter(student => student.name.toLowerCase().includes(searchQuery.toLowerCase()));
+            displayResults(results);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('searchResults').innerHTML = 'An error occurred while fetching data.';
+          });
       }
 
-      function hideOptions(selectOptions) {
-        selectOptions.style.display = 'none';
-      }
+      function displayResults(results) {
+        const searchResults = document.getElementById('searchResults');
+        searchResults.innerHTML = '';
 
-      function selectOption(element) {
-        const input = element.parentNode.previousElementSibling;
-        input.value = element.textContent;
-        hideOptions(element.parentNode);
-      }
-
-      async function fetchData(selectOptions) {
-        try {
-          const response = await fetch('https://dawnamadis.com/api/get.student.name');
-          const data = await response.json();
-          populateOptions(data, selectOptions);
-        } catch (error) {
-          console.log('Error:', error);
+        if (results.length === 0) {
+          searchResults.innerHTML = 'No results found.';
+          return;
         }
-      }
 
-      function populateOptions(data, selectOptions) {
-        let optionsHTML = '';
-        data.forEach((item) => {
-          optionsHTML += `<div onclick="selectOption(this)" data-id="${item.id}">${item.name}</div>`;
+        results.forEach(result => {
+          const container = document.createElement('div');
+          container.className = 'container';
+
+          const img_container = document.createElement('div');
+          img_container.className = 'img-container';
+
+          const banner_img = document.createElement('img');
+          banner_img.className = 'banner-img';
+          banner_img.src = "https://i.imgur.com/unqgNiU.jpg";
+
+          const profile_img = document.createElement('img');
+          profile_img.className = 'profile-img';
+          profile_img.src = result.profile_picture;
+
+          const share = document.createElement('div');
+          share.className = 'share';
+          share.innerHTML = 
+          `<ul>
+            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+            <li><i class="fa fa-git" aria-hidden="true"></i></li>
+            <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+          </ul>`;
+
+          const header = document.createElement('div');
+          header.className = 'card-header';
+          header.textContent = result.id;
+
+          const profilePicture = document.createElement('img');
+          profilePicture.className = 'profile-picture';
+          profilePicture.src = result.profile_picture;
+
+          const content = document.createElement('div');
+          content.className = 'content';
+          
+          const title = document.createElement('div');
+          title.className = 'title';
+          title.innerHTML = 
+          `<p>${result.name}</p>`;
+          
+          const addChild = document.createElement('div');
+          addChild.className = 'follow';
+          addChild.textContent = 'Add Child';
+          addChild.onclick = function() {
+            createChildCheckBox(result.id, result.name);
+          };
+
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          
+          const like = document.createElement('div');
+          like.className = 'like';
+
+          container.appendChild(img_container);
+          img_container.appendChild(banner_img);
+          img_container.appendChild(profile_img);
+          img_container.appendChild(share);
+          container.appendChild(content);
+          content.appendChild(title);
+          content.appendChild(addChild);
+          content.appendChild(heart);
+          content.appendChild(like);
+
+          searchResults.appendChild(container);
         });
-        selectOptions.innerHTML = optionsHTML;
       }
 
-      function addSelectField() {
-        const selectFieldsContainer = document.getElementById('selectFieldsContainer');
-        const newSelectField = document.createElement('div');
-        newSelectField.classList.add('select-wrapper');
-        newSelectField.innerHTML = `
-          <input type="text" class="searchInput" name="inputField${selectFieldCounter}" placeholder="Search options..." onfocus="showOptions(this)">
-          <div class="select-options"></div>
-        `;
-        selectFieldsContainer.appendChild(newSelectField);
-        selectFieldCounter++;
+      function createChildCheckBox(id, name) {
+        alert("Your Child is added");
+        const checkboxPlaceHolder = document.getElementById('checkboxPlaceHolder');
+        const checkbox = document.createElement('input');
+        const checkboxLabel = document.createElement('label');
+        checkbox.type = 'checkbox';
+        checkbox.value = id;
+        checkbox.name = 'checkbox' + checkboxCounter;
+        checkboxLabel.innerHTML = name;
+
+        checkboxPlaceHolder.appendChild(checkbox);
+        checkboxPlaceHolder.appendChild(checkboxLabel);
+
+        checkboxCounter++;
       }
+
     </script>
 </x-app-layout>
