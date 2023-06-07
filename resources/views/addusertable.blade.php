@@ -316,13 +316,11 @@
                   </div>
                   <div class="form-group row">
                     <h1>Search Box</h1>
-                    <input type="text" id="searchInput" placeholder="Enter a student name">
-                    <a onclick="search()">Search</a>
+                    <input type="text" id="searchInput" placeholder="Enter a student name" onkeydown="handleSearch(event)">
                     <div id="checkboxPlaceHolder"></div>
-                      <div id="searchResults" class="wrapper">
-                        
-                      </div>
+                    <div id="searchResults" class="wrapper"></div>
                   </div>
+
                   <div class="form-group row">
                     <span class="col-lg-9"></span>
                     <button type="submit" class="btn bg-gradient-default col-lg-3">Submit</button>
@@ -358,6 +356,12 @@
       // Call the handleRoleChange function initially to set the initial state
       handleRoleChange();
       let checkboxCounter = 1;
+
+      function handleSearch(event) {
+        if (event.keyCode === 13) { // 13 represents the Enter key
+          search();
+        }
+      }
       //Search Function for student
       function search() {
         const searchInput = document.getElementById('searchInput');
