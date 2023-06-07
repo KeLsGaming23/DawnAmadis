@@ -471,7 +471,7 @@
         const checkboxLabel = document.createElement('label');
         checkbox.type = 'checkbox';
         checkbox.value = id;
-        checkbox.name = 'checkbox' + checkboxCounter;
+        checkbox.name = 'checkbox[]'; // Use the "[]" syntax to indicate an array of values
         checkbox.checked = true; // Set the checkbox as checked
         checkboxLabel.innerHTML = name;
 
