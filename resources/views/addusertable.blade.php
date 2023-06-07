@@ -319,7 +319,7 @@
                     <div class="col-lg-6">
                       <div class="input-group">
                         <input class="form-control" type="text" id="searchInput" placeholder="Enter a student name">
-                        <div class="input-group-append">
+                        <div class="input-group-append" style="margin-right: 5px;">
                           <span class="search-icon" onclick="search()">&#128269;</span>
                         </div>
                       </div>
