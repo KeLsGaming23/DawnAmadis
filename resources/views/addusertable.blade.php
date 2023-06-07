@@ -315,11 +315,13 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <h1>Search Box</h1>
-                    <input type="text" id="searchInput" placeholder="Enter a student name">
-                    <span class="search-icon" onclick="search()">&#128269;</span>
-                    <div id="checkboxPlaceHolder"></div>
-                    <div id="searchResults" class="wrapper"></div>
+                    <h1>Search Student</h1>
+                    <div class="col-lg-6"> 
+                      <input class="form-control" type="text" id="searchInput" placeholder="Enter a student name">
+                      <span class="search-icon" onclick="search()">&#128269;</span>
+                    </div>
+                    <div id="checkboxPlaceHolder col-lg-12"></div>
+                    <div id="searchResults col-lg-12" class="wrapper"></div>
                   </div>
 
                   <div class="form-group row">
