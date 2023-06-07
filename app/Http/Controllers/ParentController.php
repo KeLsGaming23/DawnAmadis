@@ -23,29 +23,20 @@ class ParentController extends Controller
         ]);
 
         // Retrieve the child data from the request
-        $childData = collect($request->all())
-        ->filter(function ($value, $key) {
-            return str_starts_with($key, 'inputField');
-        })
-        ->map(function ($value) {
-            $matches = [];
-            preg_match('/data-id="(\d+)"/', $value, $matches);
-            return ($matches[1] ?? 0);
-        })
-        ->toArray();    
-
+        $childData = $request->input('checkbox');
 
         // Loop through the child data and create child records
         foreach ($childData as $studentId) {
             // Create a new child record
             Child::create([
                 'parent_id' => $parent->id,
-                'student_id' => 1,
+                'student_id' => $studentId,
             ]);
         }
 
         // Redirect or perform any additional actions after saving the data
 
-        return Redirect()->back()->with('success', 'User created successfully.');
+        return redirect()->back()->with('success', 'User created successfully.');
     }
+
 }
