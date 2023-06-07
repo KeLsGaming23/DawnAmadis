@@ -316,7 +316,8 @@
                   </div>
                   <div class="form-group row">
                     <h1>Search Box</h1>
-                    <input type="text" id="searchInput" placeholder="Enter a student name" onkeydown="handleSearch(event)">
+                    <input type="text" id="searchInput" placeholder="Enter a student name">
+                    <span class="search-icon" onclick="search()">&#128269;</span>
                     <div id="checkboxPlaceHolder"></div>
                     <div id="searchResults" class="wrapper"></div>
                   </div>
