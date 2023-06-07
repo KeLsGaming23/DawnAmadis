@@ -1,6 +1,9 @@
 
 <x-app-layout>
   <style> 
+    .search-icon{
+      cursor: pointer;
+    }
     .wrapper{
     display: flex;
     }
