@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SchoolYear;
+use App\Models\StudentBasicInformation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -32,5 +33,11 @@ class SchoolYearController extends Controller
         }
     
         return view('schoolyeararchive', compact('schoolYear', 'students', 'currentSchoolYear'));
+    }
+    public function softDelete($id){
+        $student = StudentBasicInformation::findOrFail($id);
+        $student->delete();
+
+        return Redirect()->back()->with('success', 'Users deleted successfully.');
     }
 }

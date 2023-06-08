@@ -58,4 +58,7 @@ Route::post('/add-parent-info', [ParentController::class, 'store'])
 
 Route::get('/school-years/{schoolYear}', [SchoolYearController::class, 'show'])
     ->name('school-years.show');
+
+Route::delete('/delete/students-information{userId}', [SchoolYearController::class, 'softDelete'])
+    ->name('delete-student-information');
 require __DIR__.'/auth.php';

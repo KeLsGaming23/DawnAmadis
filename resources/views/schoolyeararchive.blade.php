@@ -45,7 +45,11 @@
                         </td>                        
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                          <a href="{{ url('viewadduser' )}}">Delete</a>
+                          <form action="{{ route('delete-student-information', ['userId' => $student->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link text-danger">Delete</button>
+                          </form>
                         </td>
                     </tr>
                   @endforeach
@@ -53,7 +57,8 @@
                 </table>
               </div>  
             </div>  
-          </div>  
+          </div>
+
         </div>  
       </div>  
     </div>  
