@@ -11,7 +11,7 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Student Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Middle Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grade Level</th>
@@ -20,7 +20,17 @@
                   <tbody>
                   @foreach ($students as $student)
                     <tr>
-                        <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->last_name }}</td>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img src="{{ $student->profile_picture }}" class="avatar avatar-sm me-3" alt="user1">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ $student->last_name }}, {{ $student->first_name }}</h6>
+                              <p class="text-xs text-secondary mb-0">{{ $student->user->email }}</p>
+                            </div>
+                          </div>
+                        </td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->first_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->grade }}</td>
