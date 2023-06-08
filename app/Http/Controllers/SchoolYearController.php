@@ -21,4 +21,10 @@ class SchoolYearController extends Controller
 
         return Redirect()->back()->with('success', 'School Year Created successfully');
     }
+    public function show(SchoolYear $schoolYear)
+    {
+        $students = $schoolYear->studentBasicInformations;
+
+        return view('school_years.show', compact('schoolYear', 'students'));
+    }
 }

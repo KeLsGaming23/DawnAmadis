@@ -13,7 +13,7 @@ class SchoolYear extends Model
     ];
     public function studentBasicInformations()
     {
-        return $this->hasOne(StudentBasicInformation::class, 'school_years_id');
+        return $this->hasMany(StudentBasicInformation::class, 'school_years_id');
     }
 
 }

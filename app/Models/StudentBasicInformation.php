@@ -24,5 +24,9 @@ class StudentBasicInformation extends Model
         'grade',
         'profile_picture'
     ];
+    public function schoolYear()
+    {
+        return $this->belongsTo(SchoolYear::class, 'school_years_id');
+    }
 
 }
