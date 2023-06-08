@@ -56,5 +56,6 @@ Route::get('/users/{userId}', [UserPortalController::class, 'getUserDetails']);
 Route::post('/add-parent-info', [ParentController::class, 'store'])   
     ->name('add-parent-info');
 
-Route::get('/school-years/{schoolYear}', [SchoolYearController::class, 'show']);
+Route::get('/school-years/{schoolYear}', [SchoolYearController::class, 'show'])
+    ->name('school-years.show');
 require __DIR__.'/auth.php';

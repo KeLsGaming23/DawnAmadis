@@ -25,6 +25,6 @@ class SchoolYearController extends Controller
     {
         $students = $schoolYear->studentBasicInformations;
 
-        return view('school_years.show', compact('schoolYear', 'students'));
+        return view('schoolyeararchive', compact('schoolYear', 'students'));
     }
 }
