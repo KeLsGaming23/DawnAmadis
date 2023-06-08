@@ -20,7 +20,7 @@
                   <tbody>
                   @foreach ($students as $student)
                     <tr>
-                        <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ $student->last_name }}</td>
+                        <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->last_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->first_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->grade }}</td>
