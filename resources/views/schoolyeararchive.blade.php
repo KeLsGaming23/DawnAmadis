@@ -45,7 +45,7 @@
                         </td>                        
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                          <a href="{{url('viewadduser')}}">Delete</a>
+                          <a href="{{ url('viewadduser' )}}">Delete</a>
                         </td>
                     </tr>
                   @endforeach
