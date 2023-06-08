@@ -29,7 +29,7 @@
                   <tbody>
                   @foreach ($students as $student)
                     <tr>
-                        <td>
+                        <td style="cursor: pointer;">
                           <div class="d-flex px-2 py-1">
                             <div>
                               <img src="{{ $student->profile_picture }}" class="avatar avatar-sm me-3" alt="user1">
