@@ -24,7 +24,7 @@ class SchoolYearController extends Controller
     public function show(SchoolYear $schoolYear)
     {
         $students = $schoolYear->studentBasicInformations;
-        $currentSchoolYear = SchoolYear::all();
+        $currentSchoolYear = SchoolYear::where('id', $schoolYear->id)->value('school_year');
 
         return view('schoolyeararchive', compact('schoolYear', 'students', 'currentSchoolYear'));
     }
