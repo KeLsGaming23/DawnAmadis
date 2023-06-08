@@ -27,7 +27,11 @@
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">{{ $student->last_name }}, {{ $student->first_name }}</h6>
-                              <p class="text-xs text-secondary mb-0">{{ $student->user->email }}</p>
+                              @if ($student->user)
+                                  <p class="text-xs text-secondary mb-0">{{ $student->user->email }}</p>
+                              @else
+                                  <p class="text-xs text-secondary mb-0">No email available</p>
+                              @endif
                             </div>
                           </div>
                         </td>
