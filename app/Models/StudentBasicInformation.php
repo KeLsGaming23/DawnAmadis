@@ -28,5 +28,8 @@ class StudentBasicInformation extends Model
     {
         return $this->belongsTo(SchoolYear::class, 'school_years_id');
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }

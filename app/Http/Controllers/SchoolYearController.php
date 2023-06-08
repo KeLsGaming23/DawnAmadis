@@ -25,7 +25,12 @@ class SchoolYearController extends Controller
     {
         $students = $schoolYear->studentBasicInformations;
         $currentSchoolYear = SchoolYear::where('id', $schoolYear->id)->value('school_year');
-
+    
+        // Retrieve the user information for each student
+        foreach ($students as $student) {
+            $student->load('user');
+        }
+    
         return view('schoolyeararchive', compact('schoolYear', 'students', 'currentSchoolYear'));
     }
 }
