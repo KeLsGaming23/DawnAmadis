@@ -4,7 +4,7 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6 class="">Current School Year: {{ $students->school_years_id }}</h6>
+              <h6 class="">Current School Year</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -24,6 +24,7 @@
                         <td>{{ $student->last_name }}</td>
                         <td>{{ $student->first_name }}</td>
                         <td>{{ $student->middle_name }}</td>
+                        <td>{{ $student->school_years_id }}</td>
                     </tr>
                   @endforeach
                   </tbody>
