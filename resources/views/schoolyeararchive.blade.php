@@ -13,9 +13,8 @@
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">First Name</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Middle Name</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Token</th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Middle Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grade Level</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -24,7 +23,7 @@
                         <td>{{ $student->last_name }}</td>
                         <td>{{ $student->first_name }}</td>
                         <td>{{ $student->middle_name }}</td>
-                        <td>{{ $student->school_years_id }}</td>
+                        <td>{{ $student->grade }}</td>
                     </tr>
                   @endforeach
                   </tbody>
