@@ -14,7 +14,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Student Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grade Level</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Middle Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grade Level</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -44,7 +44,9 @@
                         @endif
                         </td>                        
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
-                        <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->grade }}</td>
+                        <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                          <a href="{{url('viewadduser')}}">Delete</a>
+                        </td>
                     </tr>
                   @endforeach
                   </tbody>
