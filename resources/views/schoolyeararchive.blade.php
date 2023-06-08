@@ -36,8 +36,12 @@
                           </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{ $student->user->role }}</p>
-                          <p class="text-xs text-secondary mb-0">{{ $student->grade }}</p>
+                        @if ($student->user)
+                            <p class="text-xs font-weight-bold mb-0">{{ $student->user->role ?? 'No role available' }}</p>
+                            <p class="text-xs text-secondary mb-0">{{ $student->grade }}</p>
+                        @else
+                            <p class="text-xs text-secondary mb-0">No user information available</p>
+                        @endif
                         </td>                        
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->grade }}</td>
