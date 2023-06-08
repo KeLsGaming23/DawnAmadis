@@ -40,7 +40,7 @@
                             <p class="text-xs font-weight-bold mb-0">{{ $student->user->role ?? 'No role available' }}</p>
                             <p class="text-xs text-secondary mb-0">{{ $student->grade }}</p>
                         @else
-                            <p class="text-xs text-secondary mb-0">No user information available</p>
+                            <p class="text-xs text-secondary mb-0">Not Register Yet</p>
                         @endif
                         </td>                        
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ $student->middle_name }}</td>
