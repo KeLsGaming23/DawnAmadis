@@ -38,6 +38,6 @@ class SchoolYearController extends Controller
         $student = StudentBasicInformation::findOrFail($id);
         $student->delete();
 
-        return Redirect()->back()->with('success', 'Users deleted successfully.');
+        return Redirect()->back()->with('success', 'Student deleted successfully.');
     }
 }
