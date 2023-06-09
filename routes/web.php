@@ -28,21 +28,10 @@ Route::get('/', function () {
 
 
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        $user = User::find(auth()->id());
-
-        if ($user->getAttribute('role') === 'Parent') {
-            return redirect()->route('parent.dashboard');
-        }
-
-        return redirect()->route('dashboard');
-    })->name('dashboard');
-
-    Route::get('/parent/dashboard', function () {
-        return view('parentdashboard');
-    })->name('parent.dashboard');
-});
+Route::get('/dashboard', function () {
+    $schoolYears = SchoolYear::all();
+    return view('dashboard', compact('schoolYears'));
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
