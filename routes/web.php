@@ -29,15 +29,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $user = auth()->user();
 
-        if ($user->hasRole('Parent')) {
+        if ($user->role === 'Parent') {
             return redirect()->route('parent.dashboard');
         }
 
-        $schoolYears = SchoolYear::all();
-        return view('dashboard', compact('schoolYears'));
+        return redirect()->route('dashboard');
     })->name('dashboard');
 
-    Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])->name('parent.dashboard');
+    Route::get('/parent/dashboard', function () {
+        return view('parentdashboard');
+    })->name('parent.dashboard');
 });
 
 Route::middleware('auth')->group(function () {
