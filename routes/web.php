@@ -26,11 +26,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $user = User::find(auth()->id());
 
-        if ($user->role === 'Parent') {
+        if ($user->getAttribute('role') === 'Parent') {
             return redirect()->route('parent.dashboard');
         }
 
@@ -41,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('parentdashboard');
     })->name('parent.dashboard');
 });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
