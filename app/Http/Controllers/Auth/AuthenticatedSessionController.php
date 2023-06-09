@@ -30,9 +30,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         $user = auth()->user();
-        if ($user->getAttribute('role') === 'Parent') {
+        if ($user && $user->getAttribute('role') === 'Parent') {
             return redirect()->route('parent.dashboard');
-        }        
+        }             
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
