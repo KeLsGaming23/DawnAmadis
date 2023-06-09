@@ -25,10 +25,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $schoolYears = SchoolYear::all();
-    return view('dashboard', compact('schoolYears'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        if (auth()->user()->role === 'Parent') {
+            return redirect()->route('parent.dashboard');
+        }
+        $schoolYears = SchoolYear::all();
+        return view('dashboard', compact('schoolYears'));
+    })->name('dashboard');
+    Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])->name('parent.dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
