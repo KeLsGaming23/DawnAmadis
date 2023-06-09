@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ParentController;
+use App\Http\Controllers\ParentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\StudentDetailsController;
@@ -63,4 +64,8 @@ Route::get('/school-years/{schoolYear}', [SchoolYearController::class, 'show'])
 Route::delete('/delete/students-information{userId}', [SchoolYearController::class, 'softDelete'])
     ->name('delete-student-information');
 Route::get('student/{id}', [StudentDetailsController::class, 'show'])->name('student.show');
+Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])
+    ->middleware(['auth', 'role:parent'])
+    ->name('parent.dashboard');
+
 require __DIR__.'/auth.php';
