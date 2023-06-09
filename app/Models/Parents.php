@@ -22,4 +22,8 @@ class Parents extends Model
     {
         return $this->hasOne(Child::class, 'parent_id');
     }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

@@ -28,4 +28,8 @@ class Child extends Model
     {
         return $this->belongsTo(StudentBasicInformation::class, 'student_id');
     }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

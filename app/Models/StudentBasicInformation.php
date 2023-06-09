@@ -40,4 +40,8 @@ class StudentBasicInformation extends Model
     {
         return $this->hasOneThrough(Parents::class, Child::class, 'student_id', 'id', 'parent_id', 'id');
     }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }
