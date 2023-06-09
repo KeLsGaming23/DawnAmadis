@@ -51,5 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(StudentBasicInformation::class, 'users_id');
     }
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
 
 }
