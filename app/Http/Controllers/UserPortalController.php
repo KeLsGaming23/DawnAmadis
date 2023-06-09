@@ -55,7 +55,6 @@ class UserPortalController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        if ($request->role === 'Student') {
             $profile_picture = $request->file('profile_picture');
             $name_gen = hexdec(uniqid());
             $img_ext = strtolower($profile_picture->getClientOriginalExtension());
@@ -76,8 +75,6 @@ class UserPortalController extends Controller
                 'grade' => $request->grade,
                 'profile_picture' => $last_img,
             ]);
-            
-        }
 
         return Redirect()->back()->with('success', 'User created successfully.');
     }
