@@ -27,12 +27,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        if (auth()->user()->role === 'Parent') {
+        $user = auth()->user();
+
+        if ($user->hasRole('Parent')) {
             return redirect()->route('parent.dashboard');
         }
+
         $schoolYears = SchoolYear::all();
         return view('dashboard', compact('schoolYears'));
     })->name('dashboard');
+
     Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])->name('parent.dashboard');
 });
 
