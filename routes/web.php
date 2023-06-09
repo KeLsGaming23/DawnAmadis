@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('schoolYears'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/parent/dashboard', function () {
+Route::get('/parentdashboard', function () {
     return view('parentdboard');
 })->name('parent.dashboard');
 Route::middleware('auth')->group(function () {
