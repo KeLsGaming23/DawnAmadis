@@ -7,7 +7,7 @@
               <h6 class="">{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}</h6>
               <p>Grade: {{ $student->grade }}</p>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-0 pb-2">
               @if ($student->child && $student->child->parent)
                   <h6>Parent Details</h6>
                   <p>Father's Name: {{ $student->child->parent->fathers_name }}</p>
