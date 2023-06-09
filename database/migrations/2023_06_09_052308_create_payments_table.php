@@ -32,9 +32,9 @@ return new class extends Migration
             $table->decimal('payment_10th_month', 8, 2)->nullable();
             $table->timestamps();
 
-            $table->foreign('child_id')->references('child_id')->on('child')->onDelete('cascade');
-            $table->foreign('parent_id')->references('id')->on('parent')->onDelete('cascade');
-            $table->foreign('student_id')->references('id')->on('student_basic_information')->onDelete('cascade');
+            $table->foreign('child_id')->references('child_id')->on('children')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('parents')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('student_basic_informations')->onDelete('cascade');
         });
     }
 
