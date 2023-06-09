@@ -48,7 +48,7 @@ class UserPortalController extends Controller
 
         $user = User::create([
             'name' => $name,
-            'role' => $request->role,
+            'role' => 'Student',
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,

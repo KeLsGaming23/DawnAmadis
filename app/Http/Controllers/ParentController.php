@@ -18,11 +18,7 @@ class ParentController extends Controller
         while (User::where('random_token', $randomToken)->exists()) {
             $randomToken = Str::random(6);
         }
-        $user = User::create([
-            'role' => 'Parent',
-            'random_token' => $randomToken,
-            'created_at' => Carbon::now()
-        ]);
+        
         // Create a new parent record
         $parent = Parents::create([
             'fathers_name' => $request->input('fathers_name'),
@@ -34,7 +30,12 @@ class ParentController extends Controller
             'address' => $request->input('address'),
             'contact_no' => $request->input('contact_no'),
         ]);
-
+        $user = User::create([
+            'name' => $request->input('fathers_name') . ' And ' . $request->input('mothers_name'),
+            'role' => 'Parent',
+            'random_token' => $randomToken,
+            'created_at' => Carbon::now()
+        ]);
         // Retrieve the child data from the request
         $childData = $request->input('checkbox');
 
