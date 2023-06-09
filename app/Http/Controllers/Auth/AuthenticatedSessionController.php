@@ -29,10 +29,11 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        $user = auth()->user();
-        if ($user && $user->getAttribute('role') === 'Parent') {
-            return redirect()->route('parent.dashboard');
-        }             
+        $user = User::find(auth()->id()); // Use the User model to find the authenticated user
+    
+    if ($user && $user->role === 'Parent') {
+        return redirect()->route('parent.dashboard');
+    }        
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
