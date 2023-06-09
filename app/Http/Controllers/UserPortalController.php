@@ -26,7 +26,6 @@ class UserPortalController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'role' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'old_student' => 'required',
