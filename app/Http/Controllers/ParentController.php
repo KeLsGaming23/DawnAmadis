@@ -19,7 +19,7 @@ class ParentController extends Controller
             $randomToken = Str::random(6);
         }
         $user = User::create([
-            'role' => $request->role,
+            'role' => 'Parent',
             'random_token' => $randomToken,
             'created_at' => Carbon::now()
         ]);
