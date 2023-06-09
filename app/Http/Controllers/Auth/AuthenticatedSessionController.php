@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        $user = User::find(auth()->id());
+        $user = auth()->user();
         if ($user->getAttribute('role') === 'Parent') {
             return redirect()->route('parent.dashboard');
         }        
