@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        if(User::user()->role === "Parent"){
+        if(Auth::user()->role === "Parent"){
             return redirect('/userstable');
         }
 
