@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Child;
+use Carbon\Carbon;
 use App\Models\Parents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class ParentController extends Controller
 {
     public function store(Request $request)
     {
+        $randomToken = Str::random(6);
+        // Check if the generated token already exists, and regenerate if necessary
+        while (User::where('random_token', $randomToken)->exists()) {
+            $randomToken = Str::random(6);
+        }
+        $user = User::create([
+            'role' => $request->input('role'),
+            'random_token' => $randomToken,
+            'created_at' => Carbon::now()
+        ]);
         // Create a new parent record
         $parent = Parents::create([
             'fathers_name' => $request->input('fathers_name'),
