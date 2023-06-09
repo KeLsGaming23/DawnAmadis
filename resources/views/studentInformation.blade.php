@@ -8,9 +8,13 @@
               <p>Grade: {{ $student->grade }}</p>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-              <h1>Parent Details</h1>
-              <h2>Father's Name: {{ $parent->fathers_name }}</h2>
-              <h2>Mother's Name: {{ $parent->mothers_name }}</h2>
+              @if ($student->child && $student->child->parent)
+                  <h1>Parent Details</h1>
+                  <h2>Father's Name: {{ $student->child->parent->fathers_name }}</h2>
+                  <h2>Mother's Name: {{ $student->child->parent->mothers_name }}</h2>
+              @else
+                  <p>No parent information available</p>
+              @endif
             </div>  
           </div>
 

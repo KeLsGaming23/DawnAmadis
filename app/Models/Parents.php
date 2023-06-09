@@ -18,4 +18,8 @@ class Parents extends Model
         'address',
         'contact_no',
     ];
+    public function child()
+    {
+        return $this->hasOne(Child::class, 'parent_id');
+    }
 }

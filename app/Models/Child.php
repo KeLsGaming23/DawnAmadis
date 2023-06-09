@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Parents;
+use App\Models\StudentBasicInformation;
+
 
 class Child extends Model
 {
@@ -18,7 +21,7 @@ class Child extends Model
     // Define the relationship with the parent
     public function parent()
     {
-        return $this->belongsTo(Parent::class, 'parent_id');
+        return $this->belongsTo(Parents::class, 'parent_id');
     }
 
     public function student()
