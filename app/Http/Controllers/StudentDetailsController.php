@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class StudentDetailsController extends Controller
 {
     public function show($id){
-        $student = StudentBasicInformation::with('parent')->findOrFail($id);
+        $student = StudentBasicInformation::with('child.parent')->findOrFail($id);
         return view('studentInformation', compact('student'));
     }
 }

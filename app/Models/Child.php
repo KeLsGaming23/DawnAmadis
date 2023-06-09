@@ -18,12 +18,11 @@ class Child extends Model
     // Define the relationship with the parent
     public function parent()
     {
-        return $this->belongsTo(Parent::class);
+        return $this->belongsTo(Parent::class, 'parent_id');
     }
 
-    // Define the relationship with the student basic information
     public function student()
     {
-        return $this->belongsTo(StudentBasicInformation::class);
+        return $this->belongsTo(StudentBasicInformation::class, 'student_id');
     }
 }
