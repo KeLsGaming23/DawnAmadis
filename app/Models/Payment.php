@@ -29,7 +29,7 @@ class Payment extends Model
     ];
     public function child()
     {
-        return $this->belongsTo(Child::class);
+        return $this->belongsTo(Child::class, 'child_id', 'child_id');
     }
 
     public function parent()
