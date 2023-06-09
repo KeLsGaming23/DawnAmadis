@@ -9,6 +9,7 @@ use App\Http\Controllers\UserPortalController;
 use App\Models\SchoolYear;
 use App\Models\UserPortal;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        $user = auth()->user();
+        $user = User::find(auth()->id());
 
         if ($user->role === 'Parent') {
             return redirect()->route('parent.dashboard');
