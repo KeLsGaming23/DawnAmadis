@@ -32,4 +32,12 @@ class StudentBasicInformation extends Model
     {
         return $this->belongsTo(User::class, 'users_id');
     }
+    public function child()
+    {
+        return $this->hasOne(Child::class, 'student_id');
+    }
+    public function parent()
+    {
+        return $this->hasOneThrough(Parents::class, Child::class, 'student_id', 'id', 'parent_id', 'id');
+    }
 }

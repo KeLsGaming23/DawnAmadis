@@ -30,19 +30,21 @@
                   @foreach ($students as $student)
                     <tr>
                         <td style="cursor: pointer;">
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img src="{{ $student->profile_picture }}" class="avatar avatar-sm me-3" alt="user1">
+                          <a href="{{ route('student.show', ['id' => $student->id]) }}" style="text-decoration: none;">
+                            <div class="d-flex px-2 py-1">
+                              <div>
+                                <img src="{{ $student->profile_picture }}" class="avatar avatar-sm me-3" alt="user1">
+                              </div>
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ $student->last_name }}, {{ $student->first_name }}</h6>
+                                @if ($student->user)
+                                    <p class="text-xs text-secondary mb-0">{{ $student->user->email }}</p>
+                                @else
+                                    <p class="text-xs text-secondary mb-0">No email available</p>
+                                @endif
+                              </div>
                             </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">{{ $student->last_name }}, {{ $student->first_name }}</h6>
-                              @if ($student->user)
-                                  <p class="text-xs text-secondary mb-0">{{ $student->user->email }}</p>
-                              @else
-                                  <p class="text-xs text-secondary mb-0">No email available</p>
-                              @endif
-                            </div>
-                          </div>
+                          </a>
                         </td>
                         <td>
                         @if ($student->user)

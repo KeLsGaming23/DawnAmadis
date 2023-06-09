@@ -3,6 +3,7 @@
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolYearController;
+use App\Http\Controllers\StudentDetailsController;
 use App\Http\Controllers\UserPortalController;
 use App\Models\SchoolYear;
 use App\Models\UserPortal;
@@ -61,4 +62,5 @@ Route::get('/school-years/{schoolYear}', [SchoolYearController::class, 'show'])
 
 Route::delete('/delete/students-information{userId}', [SchoolYearController::class, 'softDelete'])
     ->name('delete-student-information');
+Route::get('student/{id}', [StudentDetailsController::class, 'show'])->name('student.show');
 require __DIR__.'/auth.php';
