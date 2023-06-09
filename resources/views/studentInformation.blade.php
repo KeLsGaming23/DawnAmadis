@@ -29,8 +29,8 @@
                                   <p>Down Payment: {{ $payment->down_payment }}</p>
                                   @for ($i = 1; $i <= 10; $i++)
                                       @php
-                                          $column = 'payment_'.$i.'_month';
                                           $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                          $column = 'payment_'.$monthName.'_month';
                                       @endphp
                                       <p>Payment Month {{ $monthName }}: {{ $payment->$column }}</p>
                                   @endfor
