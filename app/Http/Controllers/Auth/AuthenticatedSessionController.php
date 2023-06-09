@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         if(Auth::user()->role === "Parent"){
-            return redirect('/userstable');
+            return redirect('/parentdashboard');
         }
 
         return redirect()->intended(RouteServiceProvider::HOME);

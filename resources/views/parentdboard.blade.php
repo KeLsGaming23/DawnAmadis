@@ -1,3 +1,7 @@
-<x-app-layout>
-  blanks
-</x-app-layout>
+<html>
+  <head>
+  </head>
+  <body>
+    hey!
+  </body>
+</html>
