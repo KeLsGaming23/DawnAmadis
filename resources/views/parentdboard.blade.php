@@ -118,10 +118,10 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                      <h6 class="mb-0">Father's Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                      {{ $user->parents->fathers_name }}
                     </div>
                   </div>
                   <hr>
