@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         DB::table('parents')
-            ->join('users', 'users.id', '=', 'parents.user_id')
+            ->join('users', 'users.id', '=', 'parents.users_id')
             ->update(['parents.users_id' => DB::raw('users.id')]);
 
         Schema::enableForeignKeyConstraints();
