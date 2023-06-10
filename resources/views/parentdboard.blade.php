@@ -60,13 +60,42 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
+                      <h6 class="mb-0">Father's Occupation</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ $parent->fathers_occupation }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mother's Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ $parent->mothers_name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mother's Occupation</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ $parent->mothers_occupation }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Children</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       <h2>Children:</h2>
                         <ul>
                             @foreach ($parent->children as $child)
                                 <li>Student ID: {{ $child->student_id }}</li>
+                                <li>Student Name: {{ $payment->studentBasicInformation->last_name }}, {{ $payment->studentBasicInformation->first_name }}</li>
+                                <li>Profile Pic:{{ $payment->studentBasicInformation->profile_picture }}</li>
                             @endforeach
                         </ul>
                     </div>
