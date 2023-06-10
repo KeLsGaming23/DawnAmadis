@@ -17,6 +17,7 @@ class Parents extends Model
         'guardian_contact_no',
         'address',
         'contact_no',
+        'users_id',
     ];
     public function child()
     {
@@ -25,5 +26,9 @@ class Parents extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
     }
 }

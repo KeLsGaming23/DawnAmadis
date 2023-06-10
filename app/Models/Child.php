@@ -32,4 +32,8 @@ class Child extends Model
     {
         return $this->hasMany(Payment::class, 'child_id', 'child_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
