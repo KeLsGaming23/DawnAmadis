@@ -39,6 +39,6 @@ class Payment extends Model
 
     public function studentBasicInformation()
     {
-        return $this->belongsTo(StudentBasicInformation::class);
+        return $this->belongsTo(StudentBasicInformation::class, 'student_id');
     }
 }

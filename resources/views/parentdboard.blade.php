@@ -147,7 +147,7 @@
                       <h2>Payments:</h2>
                         <ul>
                             @foreach ($parent->payments as $payment)
-                                <li>Payment Option: {{ $payment->student_id }}</li>
+                                <li>Student Name: {{ $payment->studentBasicInformation->last_name }}, {{ $payment->studentBasicInformation->first_name }}</li>
                                 <li>Payment Option: {{ $payment->payment_option }}</li>
                                 <li>Total Tuition Fee: {{ $payment->total_tuition_fee }}</li>
                                 <!-- Display other payment information as needed -->
