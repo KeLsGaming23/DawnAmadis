@@ -94,8 +94,6 @@
                         <ul>
                             @foreach ($parent->children as $child)
                                 <li>Student ID: {{ $child->student_id }}</li>
-                                <li>Student Name: {{ $child->payments->studentBasicInformation->last_name }}, {{ $payment->studentBasicInformation->first_name }}</li>
-                                <li>Profile Pic:{{ $child->payments->studentBasicInformation->profile_picture }}</li>
                             @endforeach
                         </ul>
                     </div>
