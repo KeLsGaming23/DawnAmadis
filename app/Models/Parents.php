@@ -19,9 +19,9 @@ class Parents extends Model
         'contact_no',
         'users_id',
     ];
-    public function child()
+    public function children()
     {
-        return $this->hasOne(Child::class, 'parent_id');
+        return $this->hasMany(Child::class, 'parent_id');
     }
     public function payments()
     {
