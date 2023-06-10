@@ -62,7 +62,7 @@
   <div class="container">
     <div class="main-body">
           <div class="row gutters-sm">
-            <div class="col-lg-12s">
+            <div class="col-lg-12">
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="row">
