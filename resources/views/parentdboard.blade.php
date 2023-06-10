@@ -132,11 +132,9 @@
                     <div class="col-sm-9 text-secondary">
                       <h2>Children:</h2>
                         <ul>
-                            @if ($parent->child)
-                                <li>Student ID: {{ $parent->child->student_id }}</li>
-                            @else
-                                <li>No children found.</li>
-                            @endif
+                            @foreach ($parent->children as $child)
+                                <li>Student ID: {{ $child->student_id }}</li>
+                            @endforeach
                         </ul>
                     </div>
                   </div>
