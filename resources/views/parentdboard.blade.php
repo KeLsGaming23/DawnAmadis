@@ -121,7 +121,7 @@
                       <h6 class="mb-0">Father's Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{ $user->parents->fathers_name }}
+                      {{ $parent->fathers_name }}
                     </div>
                   </div>
                   <hr>
@@ -130,7 +130,12 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                      <h2>Children:</h2>
+                        <ul>
+                            @foreach ($parent->child as $childs)
+                                <li>Student ID: {{ $childs->student_id }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                   </div>
                   <hr>
@@ -173,7 +178,7 @@
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                      <h6 class="d-flex align-items-center mb-3">Student currently enrolled</h6>
                       <small>Web Design</small>
                       <div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
