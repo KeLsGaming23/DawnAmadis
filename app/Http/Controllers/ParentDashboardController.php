@@ -9,7 +9,7 @@ class ParentDashboardController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $parent = $user->parents()->with('children')->first();
+        $parent = $user->parents()->with('children', 'payments')->first();
         return view('parentdboard', compact('parent'));
     }
 }

@@ -144,7 +144,14 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                      <h2>Payments:</h2>
+                        <ul>
+                            @foreach ($parent->payments as $payment)
+                                <li>Payment Option: {{ $payment->payment_option }}</li>
+                                <li>Total Tuition Fee: {{ $payment->total_tuition_fee }}</li>
+                                <!-- Display other payment information as needed -->
+                            @endforeach
+                        </ul>
                     </div>
                   </div>
                   <hr>

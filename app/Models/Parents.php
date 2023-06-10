@@ -25,7 +25,7 @@ class Parents extends Model
     }
     public function payments()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class, 'parent_id');
     }
     public function user()
     {
