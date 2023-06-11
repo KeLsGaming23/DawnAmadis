@@ -1,6 +1,7 @@
+@if (Route::has('login'))
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Dawn Amadis Christian School Inc.</h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -20,6 +21,11 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        @auth
+            <a href="{{ url('/dashboard') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Dash Board<i class="fa fa-arrow-right ms-3"></i></a>
+        @else
+            <a href="{{ url('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Create your Account<i class="fa fa-arrow-right ms-3"></i></a>
+        @endauth
     </div>
 </nav>
+@endif
