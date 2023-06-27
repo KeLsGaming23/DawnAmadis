@@ -1,7 +1,7 @@
 <style>
     .mainlogo{
-        width: 10%; 
-        height: 10%;
+        width: 9%; 
+        height: 9%;
     }
 </style>
 @if (Route::has('login'))
