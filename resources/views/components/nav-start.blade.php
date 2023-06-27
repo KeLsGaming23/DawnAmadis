@@ -30,7 +30,7 @@
         @auth
             <a href="{{ url('/dashboard') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Dash Board<i class="fa fa-arrow-right ms-3"></i></a>
         @else
-            <a href="{{ url('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Create your Account<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{ url('register') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Create Account</a>
         @endauth
     </div>
 </nav>
