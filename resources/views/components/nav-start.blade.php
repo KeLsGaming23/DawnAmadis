@@ -1,7 +1,13 @@
+<style>
+    .mainlogo{
+        width: 50%; 
+        height: 50%;
+    }
+</style>
 @if (Route::has('login'))
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><img class="img-fluid" src="{{ asset('/frontend/img/dawnlogo.png') style="width: 50%; height: 50%;" }}" alt="">Dawn Amadis Christian School Inc.</h2>
+        <h2 class="m-0 text-primary"><img class="img-fluid main-logo" src="{{ asset('/frontend/img/dawnlogo.png') }}" alt="">Dawn Amadis Christian School Inc.</h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
