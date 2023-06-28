@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dawn Amadis Christian School Inc.</title>
+    <meta name="description" content="Welcome to Dawn Amadis Christian School Inc., where academic excellence meets spiritual growth. Our dedicated team of educators is committed to providing a nurturing environment that promotes holistic development, rooted in Christian values. Discover a comprehensive curriculum designed to engage and challenge students at every grade level.">
     <!-- Favicon -->
 
     <link href="{{ asset('/frontend/img/dawnlogo.png') }}" rel="icon">
