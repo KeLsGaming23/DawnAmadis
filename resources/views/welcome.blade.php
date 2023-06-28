@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dawn Amadis Christian School Inc.</title>
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+
+    <link href="{{ asset('/frontend/img/dawnlogo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
