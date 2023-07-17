@@ -72,5 +72,8 @@ Route::get('student/{id}', [StudentDetailsController::class, 'show'])->name('stu
 Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])
     ->middleware(['auth', 'role:parent'])
     ->name('parent.dashboard');
+//Front page links
 
+Route::view('/front-page/read-more-about-us', 'front-page.read-more-about-us');
+//Route::view('/front-page/template1', 'front-page.template1');
 require __DIR__.'/auth.php';
