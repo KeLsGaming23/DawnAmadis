@@ -51,7 +51,7 @@
     <!-- Service End -->
 
     <!-- About Start -->
-    <x-about-us-section />
+    <x-about-us />
     <!-- About End -->
 
     <!-- JavaScript Libraries -->
