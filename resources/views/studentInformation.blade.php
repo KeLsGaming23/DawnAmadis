@@ -44,11 +44,12 @@
                                         @for ($i = 1; $i <= 10; $i++)
                                           @php
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
-                                            $column = 'payment_'.$monthName.'_month'; 
                                           @endphp
                                           <td class="clickable-cell" 
                                               style="border: 1px solid black; padding: 8px; text-align: center; cursor: pointer;"
-                                              data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $payment->$column }}</td>
+                                              data-bs-toggle="modal" data-bs-target="#exampleModal" data-payment="{{ $payment->{'payment_'.$monthName.'_month'} }}">
+                                              {{ $payment->{'payment_'.$monthName.'_month'} }}
+                                          </td>
                                         @endfor
                                       </tr>                                      
                                     </tbody>
@@ -95,5 +96,16 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    myModal._element.addEventListener('show.bs.modal', function (event) {
+      var triggerElement = event.relatedTarget;
+      var payment = triggerElement.dataset.payment;
+      var modalTitle = myModal._element.querySelector('.modal-title');
+      modalTitle.textContent = payment;
+    });
+  });
+</script>
 
 </x-app-layout>
