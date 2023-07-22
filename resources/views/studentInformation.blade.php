@@ -46,7 +46,7 @@
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
                                             $column = 'payment_'.$monthName.'_month'; 
                                           @endphp
-                                          <td class="clickable-cell" style="border: 1px solid black; padding: 8px; text-align: center;">{{ $payment->$column }}</td>
+                                          <td class="clickable-cell" style="border: 1px solid black; padding: 8px; text-align: center; cursor: pointer;">{{ $payment->$column }}</td>
                                         @endfor
                                       </tr>                                      
                                     </tbody>
