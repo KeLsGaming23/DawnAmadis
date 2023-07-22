@@ -86,7 +86,7 @@
           <p>{{ $student->child->child_id }}</p>
           <form role="form text-left">
             <label for="monthly_payment">Monthly Payment</label>
-            <input type="text" name="monthly_payment" value="{{ $payment->monthly_payment }}" required>
+            <input id="monthly_payment_input" type="text" name="monthly_payment" value="{{ $payment->monthly_payment }}" required>
             <div class="text-center">
               <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Sign in</button>
             </div>
