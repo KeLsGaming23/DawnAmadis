@@ -16,30 +16,36 @@
                           <p>No parent information available</p>
                       @endif
 
-                      @if ($student->child && $student->child->payments->count() > 0)
-                          <h6>Payment Details</h6>
-                          @foreach ($student->child->payments as $payment)
-                              <p>Payment Option: {{ $payment->payment_option }}</p>
-
-                              @if ($payment->payment_option === 'Cash')
-                                  <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
-                                  <p>Cash Received: {{ $payment->cash_receive }}</p>
-                              @elseif ($payment->payment_option === 'Monthly')
-                                  <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
-                                  <p>Down Payment: {{ $payment->down_payment }}</p>
-                                  @for ($i = 1; $i <= 10; $i++)
-                                      @php
-                                          $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
-                                          $column = 'payment_'.$monthName.'_month';
-                                      @endphp
-                                      <p>Payment Month {{ $monthName }}: {{ $payment->$column }}</p>
-                                  @endfor
-                                  <p>Remaining Balance: {{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</p>
-                              @endif
-                          @endforeach
-                      @else
-                          <p>No payment information available</p>
-                      @endif
+                      <table>
+                        <tr>
+                            <td>
+                                @if ($student->child && $student->child->payments->count() > 0)
+                                    <h6>Payment Details</h6>
+                                    @foreach ($student->child->payments as $payment)
+                                        <p>Payment Option: {{ $payment->payment_option }}</p>
+                                        @if ($payment->payment_option === 'Cash')
+                                            <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
+                                            <p>Cash Received: {{ $payment->cash_receive }}</p>
+                                        @elseif ($payment->payment_option === 'Monthly')
+                                            <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
+                                            <p>Down Payment: {{ $payment->down_payment }}</p>
+                                            @for ($i = 1; $i <= 10; $i++)
+                                                @php
+                                                    $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                                    $column = 'payment_'.$monthName.'_month';
+                                                @endphp
+                                                <p>Payment Month {{ $monthName }}: {{ $payment->$column }}</p>
+                                            @endfor
+                                            <p>Remaining Balance: {{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</p>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <p>No payment information available</p>
+                                @endif
+                            </td>
+                        </tr>
+                    </table>
+                    
                   </div>
               </div>
           </div>
