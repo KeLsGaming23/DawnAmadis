@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\StudentDetailsController;
 use App\Http\Controllers\UserPortalController;
+use App\Http\Controllers\PaymentController;
 use App\Models\SchoolYear;
 use App\Models\UserPortal;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,10 @@ Route::get('student/{id}', [StudentDetailsController::class, 'show'])->name('stu
 Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])
     ->middleware(['auth', 'role:parent'])
     ->name('parent.dashboard');
+
+
+//Payment route
+Route::put('/payments/{id}/{month}', [PaymentController::class, 'editPaymentForMonth'])->name('payment.edit');
 //Front page links
 
 Route::view('/front-page/read-more-about-us', 'components.front-page.read-more-about-us');

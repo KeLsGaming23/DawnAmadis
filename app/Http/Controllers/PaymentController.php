@@ -2,10 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
+    public function editPaymentForMonth(Request $request, $id, $month)
+    {
+        $payment = Payment::findOrFail($id);
+
+        // Validate the request data if necessary
+        // $request->validate([
+        //     'payment_for_month' => 'required|numeric',
+        // ]);
+
+        // Update the payment for the specified month
+        $paymentColumn = 'payment_'.$month.'_month';
+        $payment->$paymentColumn = $request->input('payment_for_month');
+        $payment->save();
+
+        // Redirect back to the previous page or to a specific route
+        return redirect()->back()->with('success', 'Payment for '.$month.' updated successfully!');
+    }
     public function edit(string $id)
     {
         //
