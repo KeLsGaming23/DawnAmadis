@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    public function editPaymentForMonth(Request $request, $child_id, $month)
+    public function editPaymentForMonth(Request $request, $id, $month)
     {
-        $payment = Payment::findOrFail($child_id);
+        $payment = Payment::findOrFail($id);
 
         // Validate the request data if necessary
         // $request->validate([

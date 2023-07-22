@@ -83,8 +83,8 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
-          <p>{{ $student->child->child_id }}</p>
-          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['child_id' => $student->child->child_id, 'month' => '1st']) }}" method="POST">
+          <p>{{ $student->child->id }}</p>
+          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $student->child->id, 'month' => '1st']) }}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="month" id="monthInput">
@@ -125,7 +125,7 @@
     modalTitle.textContent = 'Monthly Payment - ' + columnName;
 
     // Set the form's action attribute dynamically based on the clicked column name
-    var defaultAction = "{{ route('payment.edit', ['child_id' => $student->child->child_id, 'month' => '1st']) }}";
+    var defaultAction = "{{ route('payment.edit', ['id' => $student->child->id, 'month' => '1st']) }}";
     form.action = defaultAction.replace('month', columnName);
   });
 });
