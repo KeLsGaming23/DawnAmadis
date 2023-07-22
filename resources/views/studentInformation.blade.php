@@ -84,17 +84,16 @@
       <div class="modal-body">
         <div class="card-body">
           <p>{{ $payment->id }}</p>
-          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => 1, 'month' => '1st']) }}" method="POST">
+          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="month" id="monthInput">
             <label for="monthly_payment">Monthly Payment</label>
             <input type="text" name="payment_for_month" id="monthly_payment_input" required>
             <div class="text-center">
-              <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0" onclick="refreshPage()">Save</button>
+              <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0" onclick="savePayment()">Save</button>
             </div>
-          </form>
-          
+          </form>          
         </div>
       </div>
       
@@ -125,7 +124,7 @@
     modalTitle.textContent = 'Monthly Payment - ' + columnName;
 
     // Set the form's action attribute dynamically based on the clicked column name
-    var defaultAction = "{{ route('payment.edit', ['id' => 1, 'month' => '1st']) }}";
+    var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}";
     form.action = defaultAction.replace('month', columnName);
   });
 });
@@ -134,6 +133,19 @@ function refreshPage() {
   // Refresh the page
   location.reload();
 }
+function savePayment() {
+  var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+  var inputField = myModal._element.querySelector('#monthly_payment_input');
+  var columnName = inputField.name;
+
+  // Set the form's action attribute dynamically based on the clicked column name
+  var form = document.getElementById('editPaymentForm');
+  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}".replace('month', columnName);
+
+  // Submit the form
+  form.submit();
+}
+
 
 </script>
 
