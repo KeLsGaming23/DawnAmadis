@@ -103,36 +103,38 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-    myModal._element.addEventListener('show.bs.modal', function (event) {
-      var triggerElement = event.relatedTarget;
-      var payment = triggerElement.dataset.payment;
-      var columnName = triggerElement.dataset.columnName;
-      var inputField = myModal._element.querySelector('#monthly_payment_input');
-      var modalTitle = myModal._element.querySelector('.modal-title');
-      var form = myModal._element.querySelector('#editPaymentForm'); // Get the form element
+  var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+  myModal._element.addEventListener('show.bs.modal', function (event) {
+    var triggerElement = event.relatedTarget;
+    var payment = triggerElement.dataset.payment;
+    var columnName = triggerElement.dataset.columnName;
+    var inputField = myModal._element.querySelector('#monthly_payment_input');
+    var modalTitle = myModal._element.querySelector('.modal-title');
+    var form = myModal._element.querySelector('#editPaymentForm'); // Get the form element
 
-      // Reset input field and modal title
-      inputField.name = '';
-      inputField.id = '';
-      inputField.value = '';
-      modalTitle.textContent = 'Monthly Payment';
+    // Reset input field and modal title
+    inputField.name = '';
+    inputField.id = '';
+    inputField.value = '';
+    modalTitle.textContent = 'Monthly Payment';
 
-      // Set the input field's name, ID, and value based on the clicked cell
-      inputField.name = columnName;
-      inputField.id = columnName + '_input';
-      inputField.value = payment;
-      modalTitle.textContent = 'Monthly Payment - ' + columnName;
+    // Set the input field's name, ID, and value based on the clicked cell
+    inputField.name = columnName;
+    inputField.id = columnName + '_input';
+    inputField.value = payment;
+    modalTitle.textContent = 'Monthly Payment - ' + columnName;
 
-      // Set the form's action attribute based on the clicked column name
-      form.action = "{{ route('payment.edit', ['child_id' => $student->child->child_id, 'month' => '1st']) }}".replace('month', columnName);
-    });
+    // Set the form's action attribute dynamically based on the clicked column name
+    var defaultAction = "{{ route('payment.edit', ['child_id' => $student->child->child_id, 'month' => '1st']) }}";
+    form.action = defaultAction.replace('month', columnName);
   });
+});
 
-  function refreshPage() {
-    // Refresh the page
-    location.reload();
-  }
+function refreshPage() {
+  // Refresh the page
+  location.reload();
+}
+
 </script>
 
 
