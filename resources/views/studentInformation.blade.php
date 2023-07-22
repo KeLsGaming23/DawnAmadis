@@ -1,4 +1,5 @@
 <x-app-layout>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <div class="container-fluid py-4">
       <div class="row">
           <div class="col-12">
@@ -45,9 +46,9 @@
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
                                             $column = 'payment_'.$monthName.'_month'; 
                                           @endphp
-                                          <td style="border: 1px solid black; padding: 8px; text-align: center;">{{ $payment->$column }}</td>
+                                          <td class="clickable-cell" style="border: 1px solid black; padding: 8px; text-align: center;">{{ $payment->$column }}</td>
                                         @endfor
-                                      </tr>
+                                      </tr>                                      
                                     </tbody>
                                   </table>
                                                                    
@@ -62,4 +63,19 @@
           </div>
       </div>
   </div>
+  <script>
+    $(document).ready(function() {
+      // This function will be executed when a <td> element with the class "clickable-cell" is clicked.
+      $(".clickable-cell").on("click", function() {
+        // Get the content of the clicked cell (i.e., the text inside the <td>).
+        var cellContent = $(this).text();
+        
+        // Do something with the cell content, for example, show it in an alert box.
+        alert("You clicked: " + cellContent);
+        
+        // You can perform any other actions here based on the cell content.
+        // For instance, you might want to navigate to a specific page or show additional information.
+      });
+    });
+    </script>
 </x-app-layout>
