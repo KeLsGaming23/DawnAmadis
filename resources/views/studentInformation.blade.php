@@ -110,6 +110,7 @@
       var columnName = triggerElement.dataset.columnName;
       var inputField = myModal._element.querySelector('#monthly_payment_input');
       var modalTitle = myModal._element.querySelector('.modal-title');
+      var form = myModal._element.querySelector('#editPaymentForm'); // Get the form element
 
       // Reset input field and modal title
       inputField.name = '';
@@ -122,13 +123,18 @@
       inputField.id = columnName + '_input';
       inputField.value = payment;
       modalTitle.textContent = 'Monthly Payment - ' + columnName;
+
+      // Set the form's action attribute based on the clicked column name
+      form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}".replace('month', columnName);
     });
   });
+
   function refreshPage() {
     // Refresh the page
     location.reload();
   }
 </script>
+
 
 
 
