@@ -17,64 +17,42 @@
                       @endif
 
                       @if ($student->child && $student->child->payments->count() > 0)
-    <h6>Payment Details</h6>
-    <table>
-        <thead>
-            <tr>
-                <th>Payment Month</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($student->child->payments as $payment)
-                @if ($payment->payment_option === 'Cash')
-                    <tr>
-                        <td>Payment Option</td>
-                        <td>{{ $payment->payment_option }}</td>
-                    </tr>
-                    <tr>
-                        <td>Total Tuition Fee</td>
-                        <td>{{ $payment->total_tuition_fee }}</td>
-                    </tr>
-                    <tr>
-                        <td>Cash Received</td>
-                        <td>{{ $payment->cash_receive }}</td>
-                    </tr>
-                @elseif ($payment->payment_option === 'Monthly')
-                    <tr>
-                        <td>Payment Option</td>
-                        <td>{{ $payment->payment_option }}</td>
-                    </tr>
-                    <tr>
-                        <td>Total Tuition Fee</td>
-                        <td>{{ $payment->total_tuition_fee }}</td>
-                    </tr>
-                    <tr>
-                        <td>Down Payment</td>
-                        <td>{{ $payment->down_payment }}</td>
-                    </tr>
-                    @for ($i = 1; $i <= 10; $i++)
-                        @php
-                            $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
-                            $column = 'payment_'.$monthName.'_month';
-                        @endphp
-                        <tr>
-                            <td>Payment Month {{ $monthName }}</td>
-                            <td>{{ $payment->$column }}</td>
-                        </tr>
-                    @endfor
-                    <tr>
-                        <td>Remaining Balance</td>
-                        <td>{{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</td>
-                    </tr>
-                @endif
-            @endforeach
-        </tbody>
-    </table>
-@else
-    <p>No payment information available</p>
-@endif
+                          <h6>Payment Details</h6>
+                          @foreach ($student->child->payments as $payment)
+                              <p>Payment Option: {{ $payment->payment_option }}</p>
 
+                              @if ($payment->payment_option === 'Cash')
+                                  <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
+                                  <p>Cash Received: {{ $payment->cash_receive }}</p>
+                              @elseif ($payment->payment_option === 'Monthly')
+                                  <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
+                                  <p>Down Payment: {{ $payment->down_payment }}</p>
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th>Month</th>
+                                        <th>Payment</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      @for ($i = 1; $i <= 10; $i++)
+                                        @php
+                                            $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                            $column = 'payment_'.$monthName.'_month';
+                                        @endphp
+                                        <tr>
+                                          <td>Payment Month {{ $monthName }}</td>
+                                          <td>{{ $payment->$column }}</td>
+                                        </tr>
+                                      @endfor
+                                    </tbody>
+                                  </table>                                  
+                                  <p>Remaining Balance: {{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</p>
+                              @endif
+                          @endforeach
+                      @else
+                          <p>No payment information available</p>
+                      @endif
                   </div>
               </div>
           </div>
