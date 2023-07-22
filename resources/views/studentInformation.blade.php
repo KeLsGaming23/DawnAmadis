@@ -44,13 +44,16 @@
                                         @for ($i = 1; $i <= 10; $i++)
                                           @php
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                            $column = 'payment_'.$monthName.'_month'; 
                                           @endphp
                                           <td class="clickable-cell" 
                                               style="border: 1px solid black; padding: 8px; text-align: center; cursor: pointer;"
-                                              data-bs-toggle="modal" data-bs-target="#exampleModal" data-payment="{{ $payment->{'payment_'.$monthName.'_month'} }}">
-                                              {{ $payment->{'payment_'.$monthName.'_month'} }}
+                                              data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                              data-payment="{{ $payment->$column }}" data-column-name="{{ $column }}">
+                                              {{ $payment->$column }}
                                           </td>
                                         @endfor
+
                                       </tr>                                      
                                     </tbody>
                                   </table>
@@ -73,7 +76,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Monthly Payment</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -82,10 +85,8 @@
         <div class="card-body">
           <p>{{ $student->child->child_id }}</p>
           <form role="form text-left">
-            <label>Email</label>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Change Amount">
-            </div>
+            <label for="monthly_payment">Monthly Payment</label>
+            <input type="text" name="monthly_payment" value="{{ $payment->monthly_payment }}" required>
             <div class="text-center">
               <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Sign in</button>
             </div>
@@ -102,10 +103,19 @@
     myModal._element.addEventListener('show.bs.modal', function (event) {
       var triggerElement = event.relatedTarget;
       var payment = triggerElement.dataset.payment;
+      var columnName = triggerElement.dataset.columnName;
+      var inputField = myModal._element.querySelector('#monthly_payment_input');
+      
+      // Set the input field's name, ID, and value
+      inputField.name = columnName;
+      inputField.id = columnName + '_input';
+      inputField.value = payment;
+      
       var modalTitle = myModal._element.querySelector('.modal-title');
-      modalTitle.textContent = payment;
+      modalTitle.textContent = 'Monthly Payment - ' + columnName; // Set the modal title
     });
   });
 </script>
+
 
 </x-app-layout>
