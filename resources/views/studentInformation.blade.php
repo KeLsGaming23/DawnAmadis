@@ -63,26 +63,40 @@
           </div>
       </div>
   </div>
-  <script>
-    $(document).ready(function() {
-      // This function will be executed when a <td> element with the class "clickable-cell" is clicked.
-      $(".clickable-cell").on("click", function() {
-        // Get the content of the clicked cell (i.e., the text inside the <td>).
-        var cellContent = $(this).text();
-        
-        // Get the index of the clicked cell among its siblings.
-        var cellIndex = $(this).index();
-        
-        // Get the column name from the column names array based on the cell index.
-        var columnNames = {!! json_encode(array_keys((array)$payment)) !!};
-        var columnName = columnNames[cellIndex];
-        
-        // Do something with the cell content and column name, for example, show them in an alert box.
-        alert("You clicked: " + cellContent + "\nColumn Name: " + columnName);
-        
-        // You can perform any other actions here based on the cell content and column name.
-        // For instance, you might want to navigate to a specific page or show additional information.
-      });
+
+
+<!-- Your modal HTML -->
+<div id="simpleModal" style="display: none;">
+  <div class="modal-content">
+    <!-- Add the content you want to display in the modal here -->
+    <!-- For example, you can show the cell content and column name -->
+    <p>You clicked: <span id="modalCellContent"></span></p>
+    <p>Column Name: <span id="modalColumnName"></span></p>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // This function will be executed when a <td> element with the class "clickable-cell" is clicked.
+    $(".clickable-cell").on("click", function() {
+      // Get the content of the clicked cell (i.e., the text inside the <td>).
+      var cellContent = $(this).text();
+      
+      // Get the index of the clicked cell among its siblings.
+      var cellIndex = $(this).index();
+      
+      // Get the column name from the column names array based on the cell index.
+      var columnNames = {!! json_encode(array_keys((array)$payment)) !!};
+      var columnName = columnNames[cellIndex];
+      
+      // Update the modal content with the cell content and column name.
+      $("#modalCellContent").text(cellContent);
+      $("#modalColumnName").text(columnName);
+      
+      // Display the modal by changing its display style to "block".
+      $("#simpleModal").css("display", "block");
     });
-  </script>
+  });
+</script>
+
 </x-app-layout>
