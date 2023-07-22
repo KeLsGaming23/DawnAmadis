@@ -84,7 +84,7 @@
       <div class="modal-body">
         <div class="card-body">
           <p>{{ $payment->id }}</p>
-          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}" method="POST">
+          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="month" id="monthInput">
@@ -140,7 +140,7 @@ function savePayment() {
 
   // Set the form's action attribute dynamically based on the clicked column name
   var form = document.getElementById('editPaymentForm');
-  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}".replace('month', columnName);
+  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}".replace('month', columnName);
 
   // Submit the form
   form.submit();
