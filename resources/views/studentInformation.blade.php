@@ -79,7 +79,7 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
-          <p>{{ $student->id }}</p>
+          <p>{{ $student->child_id }}</p>
           <form role="form text-left">
             <label>Email</label>
             <div class="input-group mb-3">
