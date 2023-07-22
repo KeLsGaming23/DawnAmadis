@@ -46,7 +46,9 @@
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
                                             $column = 'payment_'.$monthName.'_month'; 
                                           @endphp
-                                          <td class="clickable-cell" style="border: 1px solid black; padding: 8px; text-align: center; cursor: pointer;">{{ $payment->$column }}</td>
+                                          <td class="clickable-cell" 
+                                              style="border: 1px solid black; padding: 8px; text-align: center; cursor: pointer;"
+                                              data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $payment->$column }}</td>
                                         @endfor
                                       </tr>                                      
                                     </tbody>
@@ -65,13 +67,24 @@
   </div>
 
 
-<!-- Your modal HTML -->
-<div id="simpleModal" style="display: none;">
-  <div class="modal-content">
-    <!-- Add the content you want to display in the modal here -->
-    <!-- For example, you can show the cell content and column name -->
-    <p>You clicked: <span id="modalCellContent"></span></p>
-    <p>Column Name: <span id="modalColumnName"></span></p>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn bg-gradient-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
 
