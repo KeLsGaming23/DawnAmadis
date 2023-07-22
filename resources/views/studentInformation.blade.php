@@ -72,7 +72,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Monthly Payment</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -94,29 +94,5 @@
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function() {
-    // This function will be executed when a <td> element with the class "clickable-cell" is clicked.
-    $(".clickable-cell").on("click", function() {
-      // Get the content of the clicked cell (i.e., the text inside the <td>).
-      var cellContent = $(this).text();
-      
-      // Get the index of the clicked cell among its siblings.
-      var cellIndex = $(this).index();
-      
-      // Get the column name from the column names array based on the cell index.
-      var columnNames = {!! json_encode(array_keys((array)$payment)) !!};
-      var columnName = columnNames[cellIndex];
-      
-      // Update the modal content with the cell content and column name.
-      $("#modalCellContent").text(cellContent);
-      $("#modalColumnName").text(columnName);
-      
-      // Display the modal by changing its display style to "block".
-      $("#simpleModal").css("display", "block");
-    });
-  });
-</script>
 
 </x-app-layout>
