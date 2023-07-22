@@ -84,7 +84,7 @@
       <div class="modal-body">
         <div class="card-body">
           <p>{{ $student->child->child_id }}</p>
-          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}" method="POST">
+          <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit') }}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="month" id="monthInput">
