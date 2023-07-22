@@ -34,7 +34,7 @@
                                           @php
                                             $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
                                           @endphp
-                                          <th>Payment Month {{ $monthName }}</th>
+                                          <th>{{ $monthName }} Month</th>
                                         @endfor
                                       </tr>
                                     </thead>
