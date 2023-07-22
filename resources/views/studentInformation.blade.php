@@ -105,17 +105,23 @@
       var payment = triggerElement.dataset.payment;
       var columnName = triggerElement.dataset.columnName;
       var inputField = myModal._element.querySelector('#monthly_payment_input');
-      
-      // Set the input field's name, ID, and value
+      var modalTitle = myModal._element.querySelector('.modal-title');
+
+      // Reset input field and modal title
+      inputField.name = '';
+      inputField.id = '';
+      inputField.value = '';
+      modalTitle.textContent = 'Monthly Payment';
+
+      // Set the input field's name, ID, and value based on the clicked cell
       inputField.name = columnName;
       inputField.id = columnName + '_input';
       inputField.value = payment;
-      
-      var modalTitle = myModal._element.querySelector('.modal-title');
-      modalTitle.textContent = 'Monthly Payment - ' + columnName; // Set the modal title
+      modalTitle.textContent = 'Monthly Payment - ' + columnName;
     });
   });
 </script>
+
 
 
 </x-app-layout>
