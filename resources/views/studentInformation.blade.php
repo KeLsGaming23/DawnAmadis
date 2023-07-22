@@ -28,20 +28,28 @@
                                   <p>Total Tuition Fee: {{ $payment->total_tuition_fee }}</p>
                                   <p>Down Payment: {{ $payment->down_payment }}</p>
                                   <table>
-                                    <tr>
-                                  @for ($i = 1; $i <= 10; $i++)
-                                      @php
-                                          $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
-                                          $column = 'payment_'.$monthName.'_month'; 
-                                      @endphp
-                                            <th>Payment Month {{ $monthName }}</th>
-                                        </tr>
-                                        <tr>
-                                            <td>{{ $payment->$column }}</td>
-                                        
-                                  @endfor
-                                    </tr>
-                                </table>
+                                    <thead>
+                                      <tr>
+                                        @for ($i = 1; $i <= 10; $i++)
+                                          @php
+                                            $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                          @endphp
+                                          <th>Payment Month {{ $monthName }}</th>
+                                        @endfor
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        @for ($i = 1; $i <= 10; $i++)
+                                          @php
+                                            $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
+                                            $column = 'payment_'.$monthName.'_month'; 
+                                          @endphp
+                                          <td>{{ $payment->$column }}</td>
+                                        @endfor
+                                      </tr>
+                                    </tbody>
+                                  </table>                                  
                                   <p>Remaining Balance: {{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</p>
                               @endif
                           @endforeach
