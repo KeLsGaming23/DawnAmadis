@@ -18,7 +18,7 @@ class PaymentController extends Controller
 
         // Update the payment for the specified month
         $paymentColumn = 'payment_'.$month.'_month';
-        $payment->$paymentColumn = intval($request->input('payment_for_month'));
+        $payment->$paymentColumn = floatval($request->input('payment_for_month'));
         $payment->save();
 
         // Redirect back to the previous page or to a specific route
