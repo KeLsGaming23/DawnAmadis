@@ -125,7 +125,7 @@
       modalTitle.textContent = 'Monthly Payment - ' + columnName;
 
       // Set the form's action attribute based on the clicked column name
-      form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}".replace('month', columnName);
+      form.action = "{{ route('payment.edit', ['child_id' => $student->child->child_id, 'month' => '1st']) }}".replace('month', columnName);
     });
   });
 
