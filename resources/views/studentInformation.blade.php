@@ -33,14 +33,12 @@
                                           $column = 'payment_'.$monthName.'_month'; 
                                       @endphp
                                       <table>
-                                        <thead>
                                         <tr>
                                             <th>Payment Month {{ $monthName }}</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>{{ $payment->$column }}</tr>
-                                        </tbody>
+                                        <tr>
+                                            <td>{{ $payment->$column }}</td>
+                                        </tr>
                                       </table>
                                   @endfor
                                   <p>Remaining Balance: {{ $payment->total_tuition_fee - ($payment->down_payment + $payment->payment_1st_month + $payment->payment_2nd_month + $payment->payment_3rd_month + $payment->payment_4th_month + $payment->payment_5th_month + $payment->payment_6th_month + $payment->payment_7th_month + $payment->payment_8th_month + $payment->payment_9th_month + $payment->payment_10th_month) }}</p>
