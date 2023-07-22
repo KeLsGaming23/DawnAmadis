@@ -30,8 +30,7 @@
                                   @for ($i = 1; $i <= 10; $i++)
                                       @php
                                           $monthName = $i === 1 ? '1st' : ($i === 2 ? '2nd' : ($i === 3 ? '3rd' : ($i.'th')));
-                                          $column = 'payment_'.$monthName.'_month';
-                                       </table> 
+                                          $column = 'payment_'.$monthName.'_month'; 
                                       @endphp
                                       <table>
                                         <thead>
