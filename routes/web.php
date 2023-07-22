@@ -76,7 +76,7 @@ Route::get('/parent/dashboard', [ParentDashboardController::class, 'index'])
 
 
 //Payment route
-Route::put('/payments/{id}/{month}', [PaymentController::class, 'editPaymentForMonth'])->name('payment.edit');
+//Route::put('/payments/{id}/{month}', [PaymentController::class, 'editPaymentForMonth'])->name('payment.edit');
 //Front page links
 
 Route::view('/front-page/read-more-about-us', 'components.front-page.read-more-about-us');
