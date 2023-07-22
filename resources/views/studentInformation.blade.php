@@ -70,12 +70,19 @@
         // Get the content of the clicked cell (i.e., the text inside the <td>).
         var cellContent = $(this).text();
         
-        // Do something with the cell content, for example, show it in an alert box.
-        alert("You clicked: " + cellContent);
+        // Get the index of the clicked cell among its siblings.
+        var cellIndex = $(this).index();
         
-        // You can perform any other actions here based on the cell content.
+        // Get the column name from the column names array based on the cell index.
+        var columnNames = {!! json_encode(array_keys((array)$payment)) !!};
+        var columnName = columnNames[cellIndex];
+        
+        // Do something with the cell content and column name, for example, show them in an alert box.
+        alert("You clicked: " + cellContent + "\nColumn Name: " + columnName);
+        
+        // You can perform any other actions here based on the cell content and column name.
         // For instance, you might want to navigate to a specific page or show additional information.
       });
     });
-    </script>
+  </script>
 </x-app-layout>
