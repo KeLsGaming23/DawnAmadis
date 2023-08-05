@@ -125,8 +125,8 @@
 
     // Set the form's action attribute dynamically based on the clicked column name
     var suffix = getSuffix(columnName); // Call the function to get the appropriate suffix
-    var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}";
-    form.action = defaultAction.replace('month', suffix);
+    var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => 'placeholder']) }}";
+    form.action = defaultAction.replace('placeholder', suffix);
     // Set the form's action attribute dynamically based on the clicked column name
     //var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}";
     //form.action = defaultAction.replace('month', columnName);
