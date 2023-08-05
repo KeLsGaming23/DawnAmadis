@@ -137,8 +137,8 @@ function getSuffix(columnName) {
   var suffix = 'th'; // Default suffix is 'th'
 
   // Check for special cases for 1st, 2nd, 3rd
-  if (columnName === '1st') {
-    suffix = 'st';
+  if (columnName === '1') {
+    suffix = '1st';
   } else if (columnName === '2nd') {
     suffix = 'nd';
   } else if (columnName === '3rd') {
