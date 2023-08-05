@@ -10,7 +10,7 @@ class StudentDetailsController extends Controller
 {
     public function show($id){
         $student = StudentBasicInformation::with('child.parent')->findOrFail($id);
-        $payment = Payment::all();
-        return view('studentInformation', compact('student', 'payment'));
+        $payment_information = Payment::all();
+        return view('studentInformation', compact('student', 'payment_information'));
     }
 }
