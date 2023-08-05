@@ -124,10 +124,29 @@
     modalTitle.textContent = 'Monthly Payment - ' + columnName;
 
     // Set the form's action attribute dynamically based on the clicked column name
-    var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}";
-    form.action = defaultAction.replace('month', columnName);
+    var suffix = getSuffix(columnName); // Call the function to get the appropriate suffix
+    var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '']) }}";
+    form.action = defaultAction.replace('month', suffix);
+    // Set the form's action attribute dynamically based on the clicked column name
+    //var defaultAction = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}";
+    //form.action = defaultAction.replace('month', columnName);
   });
 });
+// Function to get the appropriate suffix for the column name
+function getSuffix(columnName) {
+  var suffix = 'th'; // Default suffix is 'th'
+
+  // Check for special cases for 1st, 2nd, 3rd
+  if (columnName === '1st') {
+    suffix = 'st';
+  } else if (columnName === '2nd') {
+    suffix = 'nd';
+  } else if (columnName === '3rd') {
+    suffix = 'rd';
+  }
+
+  return suffix;
+}
 
 function refreshPage() {
   // Refresh the page
@@ -140,7 +159,8 @@ function savePayment() {
 
   // Set the form's action attribute dynamically based on the clicked column name
   var form = document.getElementById('editPaymentForm');
-  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}".replace('month', columnName);
+  var suffix = getSuffix(columnName);
+  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}".replace('month', suffix);
 
   // Submit the form
   form.submit();
