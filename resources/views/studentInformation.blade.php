@@ -160,7 +160,7 @@ function savePayment() {
   // Set the form's action attribute dynamically based on the clicked column name
   var form = document.getElementById('editPaymentForm');
   var suffix = getSuffix(columnName);
-  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}".replace('month', suffix);
+  form.action = "{{ route('payment.edit', ['id' => $payment->id, 'month' => 'placeholder']) }}".replace('placeholder', suffix);
 
   // Submit the form
   form.submit();
