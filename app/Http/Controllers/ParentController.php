@@ -43,12 +43,12 @@ class ParentController extends Controller
         // Loop through the child data and create child records
         foreach ($childData as $studentId) {
             // Create a new child record
-            Child::create([
+            $child = Child::create([
                 'parent_id' => $parent->id,
                 'student_id' => $studentId,
             ]);
             Payment::create([
-                'child_id' => $childData->child_id,
+                'child_id' => $child->child_id,
                 'parent_id' => $parent->id,
                 'student_id' => $studentId,
             ]);
