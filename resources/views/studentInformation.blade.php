@@ -134,15 +134,29 @@
 });
 // Function to get the appropriate suffix for the column name
 function getSuffix(columnName) {
-  var suffix = 'th'; // Default suffix is 'th'
+  var suffix = '1st'; // Default suffix is 'th'
 
   // Check for special cases for 1st, 2nd, 3rd
   if (columnName === 'payment_1st_month') {
     suffix = '1st';
-  } else if (columnName === '2nd') {
-    suffix = 'nd';
-  } else if (columnName === '3rd') {
-    suffix = 'rd';
+  } else if (columnName === 'payment_2nd_month') {
+    suffix = '2nd';
+  } else if (columnName === 'payment_3rd_month') {
+    suffix = '3rd';
+  } else if (columnName === 'payment_4th_month') {
+    suffix = '4th';
+  } else if (columnName === 'payment_5th_month') {
+    suffix = '5th';
+  } else if (columnName === 'payment_6th_month') {
+    suffix = '6th';
+  } else if (columnName === 'payment_7th_month') {
+    suffix = '7th';
+  } else if (columnName === 'payment_8th_month') {
+    suffix = '8th';
+  } else if (columnName === 'payment_9th_month') {
+    suffix = '9th';
+  } else if (columnName === 'payment_10th_month') {
+    suffix = '10th';
   }
 
   return suffix;
