@@ -83,7 +83,7 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
-          <p>{{ $payment->id }}</p>
+          <p></p>
           <form role="form text-left" id="editPaymentForm" action="{{ route('payment.edit', ['id' => $payment->id, 'month' => '1st']) }}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="PUT">
