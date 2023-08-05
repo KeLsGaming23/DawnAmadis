@@ -7,7 +7,7 @@
                   <div class="card-header pb-0">
                       <h6>{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}</h6>
                       <p>Grade: {{ $student->grade }}</p>
-                      <p>{{$student->child->payments->payment_option}}</p>
+                      <p>{{$student->child->child_id}}</p>
                   </div>
                   <div class="card-body pt-0 pb-2">
                       @if ($student->child && $student->child->parent)
