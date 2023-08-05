@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Child;
+use App\Models\Payment;
 use Carbon\Carbon;
 use App\Models\Parents;
 use Illuminate\Http\Request;
@@ -43,6 +44,11 @@ class ParentController extends Controller
         foreach ($childData as $studentId) {
             // Create a new child record
             Child::create([
+                'parent_id' => $parent->id,
+                'student_id' => $studentId,
+            ]);
+            Payment::create([
+                'child_id' => $childData->child_id,
                 'parent_id' => $parent->id,
                 'student_id' => $studentId,
             ]);
