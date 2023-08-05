@@ -11,7 +11,7 @@ class PaymentController extends Controller
     public function editPaymentForMonth(Request $request, $id, $month)
     {
         $update = Payment::find($id)->update([
-            'payment_'.$month.'_month' => $request->payment_for_month
+            'payment_for_month' => $request->payment_for_month
         ]);
         //$payment = Payment::findOrFail($id);
 
